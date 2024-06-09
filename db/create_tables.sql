@@ -1,0 +1,15 @@
+CREATE TABLE startups (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    type VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    website VARCHAR(255),
+    img VARCHAR(255)
+);
+
+CREATE TABLE news (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    headline VARCHAR(255) NOT NULL,
+    description VARCHAR(1000) NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    img VARCHAR(255)
+);
