@@ -1,0 +1,150 @@
+/* Mixin for transition */
+@keyframes transition {
+  transition: all $time ease;
+}
+
+/* Mixin for centering */
+@keyframes center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.btn-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.btn-container .btn-items {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-container .btn-items em {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: white;
+  border-radius: 4px;
+  transform-origin: center center;
+  animation: transition 500ms ease;
+}
+
+
+.menu-container em {
+  position: absolute;
+  left: calc(71.5% + 60px);
+  /* Adjust the value based on the right offset */
+  top: -10px;
+  transform-origin: center center;
+  transform: translateX(-50%) rotate(45deg);
+  width: 20px;
+  height: 20px;
+  background: rgb(255, 255, 255);
+  vertical-align: middle;
+  /* Align the text vertically with the icon */
+}
+
+.menu-container {
+  position: absolute;
+  width: 350px;
+  height: auto;
+  right: 4px;
+  top: 80px;
+  background: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 25px;
+  z-index: 2;
+}
+
+
+.menu-container a {
+  color: black;
+  /* Set default anchor tag color */
+  text-decoration: none;
+  /* Remove underline */
+  display: block;
+  /* Make the anchor tags block elements */
+  margin-bottom: 10px;
+  /* Add some spacing between each link */
+}
+
+.menu-container a:hover {
+  color: red;
+  /* Change color to red on hover */
+}
+
+.menu-container .row {
+  padding-top: 5%;
+}
+
+.menu-container .row:hover {
+  background-color: #f0f0f0;
+  /* Change to your desired hover background color */
+  transition: background-color 0.3s ease;
+  /* Smooth transition effect */
+}
+
+.menu-container i {
+  font-size: 1.5em;
+  /* Set icon size */
+  color: red;
+  /* Set default icon color */
+  margin-right: 10px;
+  /* Add some spacing between icon and text */
+}
+
+
+
+.menu-container.close {
+  top: 120px;
+  opacity: 0;
+}
+
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  animation: transition 500ms ease;
+}
+
+#overlay.cl {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+}
+
+
+@media (max-width: 767px) {
+
+  /* Target only mobile devices */
+  .menu-container {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Center horizontally */
+    top: 80px;
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 5px;
+    z-index: 2;
+  }
+}

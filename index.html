@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>INDUCKT</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:ital,wght@1,800&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+
+  <style>
+    /* Cards box background image */
+
+    /* .pc1{
+      background-image: url(./images/b1.png);
+      background-size: cover;
+      background-position: center;
+    } */
+
+    .pc1:hover {
+      padding-bottom: 25%;
+    }
+
+    .pc3:hover {
+      padding-bottom: 25%;
+    }
+
+    .pc2 {
+      background-image: url(./images/b2.png);
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* .pc3{
+      background-image: url(./images/b3.png);
+      background-size: cover;
+      background-position: center;
+    } */
+
+      .left-form-box {
+        background-image: url(./images/Rectangle2420.png);
+        align-items: center;
+        background-repeat: no-repeat;
+        padding: 7%;
+        border-radius: 5%;
+        background-size: 110% 110%;
+        /* This will make the background image stretch to cover the entire element */
+      }
+
+
+    #footer {
+      background-image: url(./images/footer.png);
+    }
+
+    @media (max-width: 767px) {
+
+      html,
+      body {
+        overflow-x: hidden;
+        /* This prevents horizontal scrolling */
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <section class="colored-section" id="title">
+
+    <div class="container-fluid">
+
+      <style>
+        @media (max-width: 768px) {
+
+          /* Adjust styles for smaller screens */
+          .navbar-brand {
+            /* Adjust size of logo */
+            max-width: 100px;
+          }
+
+          .btn-items svg {
+            /* Adjust size of bars icon */
+            font-size: 16px;
+          }
+
+          .menu-container .row {
+            /* Adjust spacing or size for menu items */
+            padding: 5px;
+          }
+
+          .menu-container .col-md-9 {
+            /* Adjust width or alignment for menu item content */
+            width: 70%;
+          }
+
+          .menu-container .col-md-3 {
+            /* Adjust width or alignment for menu item arrows */
+            width: 30%;
+          }
+
+          /* Adjust other styles as needed */
+        }
+      </style>  
+
+      <nav class="navbar navbar-dark">
+        <img class="navbar-brand" src="./images/logo.png" alt="">
+        <div id="overlay"></div>
+        <div class="btn-container">
+          <div class="btn-items">
+            <svg class="svg-inline--fa fa-bars fa-w-14 fa-2x" aria-hidden="true" data-prefix="fas" data-icon="bars"
+              role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+              <path fill="currentColor"
+                d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div class="container">
+          <div class="menu-container">
+            <div class="row">
+              <div class="col-md-9">
+                <span style="display: flex; align-items: center;">
+                  <i class="fas fa-user" style="color: red; font-size: 16px; margin-right: 5px;"></i>
+                  <a href="#" style="text-decoration: none; color: #000; font-size: 14px;">Team</a>
+                </span>
+              </div>
+              <div class="col-md-3 d-flex justify-content-end align-items-center">
+                <span class="material-symbols-outlined" style="color:#1D68F4; font-size: 16px;">
+                  arrow_forward
+                </span>
+              </div>
+            </div>
+
+            <!-- Repeat similar structure for other menu items -->
+
+            <div class="row">
+              <div class="col-md-9">
+                <span style="display: flex; align-items: center;">
+                  <i class="fas fa-bullseye" style="color: red; font-size: 16px; margin-right: 5px;"></i>
+                  <a href="./login.html" style="text-decoration: none; color: #000; font-size: 14px;">Startup Login</a>
+                </span>
+              </div>
+              <div class="col-md-3 d-flex justify-content-end align-items-center">
+                <span class="material-symbols-outlined" style="color:#1D68F4; font-size: 16px;">
+                  arrow_forward
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-9">
+                <span style="display: flex; align-items: center;">
+                  <i class="fas fa-briefcase" style="color: red; font-size: 16px; margin-right: 5px;"></i>
+                  <a href="./login.html" style="text-decoration: none; color: #000; font-size: 14px;">Investor Login</a>
+                </span>
+              </div>
+              <div class="col-md-3 d-flex justify-content-end align-items-center">
+                <span class="material-symbols-outlined" style="color:#1D68F4; font-size: 16px;">
+                  arrow_forward
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-9">
+                <span style="display: flex; align-items: center;">
+                  <i class="fas fa-user-circle" style="color: red; font-size: 16px; margin-right: 5px;"></i>
+                  <a href="#" style="text-decoration: none; color: #000; font-size: 14px;">Ecosystem Partner</a>
+                </span>
+              </div>
+              <div class="col-md-3 d-flex justify-content-end align-items-center">
+                <span class="material-symbols-outlined" style="color:#1D68F4; font-size: 16px;">
+                  arrow_forward
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+
+
+
+      <!-- Title -->
+
+      <div class="row">
+
+        <div class="col-lg-6">
+          <h1 class="big-heading"> Bringing Your <br> Dream Into <strong style="color: yellow;">Reality</strong> </h1>
+        </div>
+
+        <div class="col-lg-6">
+          <h1 class="small-heading"> Transforming the way you invest, thrive globally with our innovative asset
+            management solutions </h1>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Pricing -->
+
+    <div class="row" id="pricing">
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card pc1">
+          <div class="card-body card1-3">
+            <p class="card-text"><strong>InDuckt <br><span style="color:#0FBE21">Vision </span>Fund</strong><br>
+              <span class="card-link">induct.co.in</span>
+              <span class="material-symbols-outlined" style="margin-left: 5px; color:#0FBE21;">north_east</span>
+            </p>
+          </div>
+          <div class="additional-box" style="background-color: #243A5A;"></div> <!-- New small square box -->
+        </div>
+      </div>
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card pc2">
+          <div class="card-body  card2">
+            <p class="card-text"><strong>InDuckt Traction <br><span style="color:#0FBE21">Angel Investors
+                </span></strong><br>
+              <span class="card-link">induct.co.in</span>
+              <span class="material-symbols-outlined" style="margin-left: 5px; color:#0FBE21;">north_east</span>
+            </p>
+          </div>
+          <div class="additional-box" style="background-color: #7CC61D;"></div> <!-- New small square box -->
+        </div>
+      </div>
+
+      <div class="pricing-column col-lg-4">
+        <div class="card pc3">
+          <div class="card-body card1-3">
+            <p class="card-text"><strong>InGrow <br><span style="color:#0FBE21">Accelerator</span></strong><br>
+              <span class="card-link">induct.co.in</span>
+              <span class="material-symbols-outlined" style="margin-left: 5px; color:#0FBE21;">north_east</span>
+            </p>
+          </div>
+          <div class="additional-box" style="background-color: #243A5A;"></div> <!-- New small square box -->
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Features -->
+
+  <section class="white-section" id="features">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="feature-box col-lg-3">
+          <img src="./images/icons/hand.png" alt=""><br>
+          <h3 class="feature-title">500+</h3>
+          <h3 class="feature-description">Deals Evaluated</h3>
+        </div>
+
+        <div class="feature-box col-lg-3">
+          <img src="./images/icons/rocket.png" alt=""><br>
+          <h3 class="feature-title">2000+</h3>
+          <h3 class="feature-description">Startups Conected</h3>
+
+        </div>
+
+        <div class="feature-box col-lg-3">
+          <img src="./images/icons/earth.png" alt=""><br>
+          <h3 class="feature-title">100+ </h3>
+          <h3 class="feature-description">Ecosystem Partners</h3>
+        </div>
+
+        <div class="feature-box col-lg-3">
+          <img src="./images/icons/people.png" alt=""><br>
+          <h3 class="feature-title">50+ </h3>
+          <h3 class="feature-description">Co-Investing VCs</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Dot card slider -->
+
+  <div class="title-story-parent">
+    <h1 class="title-story">Startup Story</h1>
+    <img class="logic-gate-child" alt="" src="./images/icons/vector-5.svg">
+  </div>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators" style="color:black;">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card-group">
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <img src="./images/s1.png" class="card-img-top" alt="...">
+              </div>
+              <div class="col-md-6" style="padding-left: 3%;">
+                <h5 class="card-slider-text"> Tech Startup</h5>
+                <h2 class="card-slider-description"> Wormos Private Limited </h2>
+                <img class="north-east-icon" loading="lazy" alt="" src="./images/icons/north-east.svg">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <img src="./images/s2.png" class="card-img-top" alt="...">
+              </div>
+              <div class="col-md-6" style="padding-left: 3%;">
+                <h5 class="card-slider-text"> Car Rental Startup</h5>
+                <h2 class="card-slider-description"> Super Car & Taxi</h2>
+                <img class="north-east-icon" loading="lazy" alt="" src="./images/icons/north-east.svg">
+
+              </div>
+            </div>
+          </div>
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <img src="./images/s3.png" class="card-img-top" alt="...">
+              </div>
+              <div class="col-md-6" style="padding-left: 3%;">
+                <h5 class="card-slider-text"> UX case study</h5>
+                <h2 class="card-slider-description"> Bally Website Research </h2>
+                <img class="north-east-icon" loading="lazy" alt="" src="./images/icons/north-east.svg">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card-group">
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <img src="./images/s1.png" class="card-img-top" alt="...">
+              </div>
+              <div class="col-md-6" style="padding-left: 3%;">
+                <h5 class="card-slider-text"> Tech Startup</h5>
+                <h2 class="card-slider-description"> Wormos Private Limited </h2>
+                <img class="north-east-icon" loading="lazy" alt="" src="./images/icons/north-east.svg">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <img src="./images/s2.png" class="card-img-top" alt="...">
+              </div>
+              <div class="col-md-6" style="padding-left: 3%;">
+                <h5 class="card-slider-text"> Car Rental Startup</h5>
+                <h2 class="card-slider-description"> Super Car & Taxi</h2>
+                <img class="north-east-icon" loading="lazy" alt="" src="./images/icons/north-east.svg">
+
+              </div>
+            </div>
+          </div>
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <img src="./images/s3.png" class="card-img-top" alt="...">
+              </div>
+              <div class="col-md-6" style="padding-left: 3%;">
+                <h5 class="card-slider-text"> UX case study</h5>
+                <h2 class="card-slider-description"> Bally Website Research </h2>
+                <img class="north-east-icon" loading="lazy" alt="" src="./images/icons/north-east.svg">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card-group">
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <img src="./images/s1.png" class="card-img-top" alt="...">
+              </div>
+              <div class="col-md-6" style="padding-left: 3%;">
+                <h5 class="card-slider-text"> Tech Startup</h5>
+                <h2 class="card-slider-description"> Wormos Private Limited </h2>
+                <img class="north-east-icon" loading="lazy" alt="" src="./images/icons/north-east.svg">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <img src="./images/s2.png" class="card-img-top" alt="...">
+              </div>
+              <div class="col-md-6" style="padding-left: 3%;">
+                <h5 class="card-slider-text"> Car Rental Startup</h5>
+                <h2 class="card-slider-description"> Super Car & Taxi</h2>
+                <img class="north-east-icon" loading="lazy" alt="" src="./images/icons/north-east.svg">
+
+              </div>
+            </div>
+          </div>
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <img src="./images/s3.png" class="card-img-top" alt="...">
+              </div>
+              <div class="col-md-6" style="padding-left: 3%;">
+                <h5 class="card-slider-text"> UX case study</h5>
+                <h2 class="card-slider-description"> Bally Website Research </h2>
+                <img class="north-east-icon" loading="lazy" alt="" src="./images/icons/north-east.svg">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <!-- News Section -->
+  <div class="title-story-parent">
+    <h1 class="title-story">In The News</h1>
+    <img class="logic-gate-child" alt="" src="./images/icons/vector-5.svg">
+  </div>
+
+  <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators" style="color:black;">
+      <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card-group">
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6 card-left-line">
+                <p class="card-left-text">TOI</p>
+                <p class="card-left-text"> Pipe has helped over 23,000 business owners connect to unbiased capital based
+                  purely on secure live data on the health of their business. </p>
+              </div>
+              <div class="col-md-6">
+                <img src="./images/background@2x.png" class="card-img-right" alt="...">
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6 card-left-line">
+                <p class="card-left-text">TOI</p>
+                <p class="card-left-text"> Pipe has helped over 23,000 business owners connect to unbiased capital based
+                  purely on secure live data on the health of their business. </p>
+              </div>
+              <div class="col-md-6">
+                <img src="./images/image-10@2x.png" class="card-img-right" alt="...">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="card-group">
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6 card-left-line">
+                <p class="card-left-text">TOI</p>
+                <p class="card-left-text"> Pipe has helped over 23,000 business owners connect to unbiased capital based
+                  purely on secure live data on the health of their business. </p>
+              </div>
+              <div class="col-md-6">
+                <img src="./images/background@2x.png" class="card-img-right" alt="...">
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6 card-left-line">
+                <p class="card-left-text">TOI</p>
+                <p class="card-left-text"> Pipe has helped over 23,000 business owners connect to unbiased capital based
+                  purely on secure live data on the health of their business. </p>
+              </div>
+              <div class="col-md-6">
+                <img src="./images/image-10@2x.png" class="card-img-right" alt="...">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="card-group">
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6 card-left-line">
+                <p class="card-left-text">TOI</p>
+                <p class="card-left-text"> Pipe has helped over 23,000 business owners connect to unbiased capital based
+                  purely on secure live data on the health of their business. </p>
+              </div>
+              <div class="col-md-6">
+                <img src="./images/background@2x.png" class="card-img-right" alt="...">
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-slider">
+            <div class="row no-gutters">
+              <div class="col-md-6 card-left-line">
+                <p class="card-left-text">TOI</p>
+                <p class="card-left-text"> Pipe has helped over 23,000 business owners connect to unbiased capital based
+                  purely on secure live data on the health of their business. </p>
+              </div>
+              <div class="col-md-6">
+                <img src="./images/image-10@2x.png" class="card-img-right" alt="...">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <!-- Form Section -->
+  <script>
+    $(document).ready(function () {
+      $(".box-option").click(function () {
+        // Get the index of the clicked box option
+        var index = $(this).index();
+        // Hide all forms
+        $(".form-container").hide();
+        // Show the corresponding form based on the index
+        $(".form-container").eq(index).show();
+      });
+    });
+  </script>
+
+  <div class="container-fluid form-box">
+    <div class="row">
+      <!-- Left Section: Box Options -->
+      <div class="col-md-5 left-form-box">
+        <!-- Left Section: Box Options -->
+        <div class="box-option">
+          <div class="row align-items-center">
+            <!-- Add align-items-center to vertically center content -->
+            <div class="col-md-3 text-center">
+              <!-- Add text-center class to center the content -->
+              <div class="icon-container">
+                <i class="fas fa-map-marker-alt icon" style="color:#213672;"></i>
+              </div>
+            </div>
+            <div class="col-md-9" style="text-align: left;">
+              <span style="color: #424E60;">I am a</span>
+              <p style="color: #000;">Individual/ Venture Fund Investors</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-option">
+          <div class="row align-items-center">
+            <!-- Add align-items-center to vertically center content -->
+            <div class="col-md-3 text-center">
+              <!-- Add text-center class to center the content -->
+              <div class="icon-container">
+                <i class="fas fa-map-marker-alt icon" style="color:#213672;"></i>
+              </div>
+            </div>
+            <div class="col-md-9" style="text-align: left;">
+              <span style="color: #424E60;">I am a</span>
+              <p style="color: #000;">Startup Founder/ Deal Scouter/ Investment Bankers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-option">
+          <div class="row align-items-center">
+            <!-- Add align-items-center to vertically center content -->
+            <div class="col-md-3 text-center">
+              <!-- Add text-center class to center the content -->
+              <div class="icon-container">
+                <i class="fas fa-map-marker-alt icon" style="color:#213672;"></i>
+              </div>
+            </div>
+            <div class="col-md-9" style="text-align: left;">
+              <span style="color: #424E60;">I am a</span>
+              <p style="color: #000;">Ecosystem Partner-Incubator/ Accelerator/State Government/ Service Provider</p>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <!-- Right Section: Form Container -->
+      <div class="col-md-7">
+        <div class="form-container form-text">
+          <!-- Form for Option 1 -->
+          <form>
+            <h4 style="padding-bottom:5%;">Together we can bring lot of values for each other - Induckt's Founder</h4>
+            <div class="form-group">
+              <input type="text" class="form-control input-form" id="input1" placeholder="Name*" />
+
+              <select class="form-control input-form" id="organizationType">
+                <option value="">Type*</option>
+                <option value="option1">Individual</option>
+                <option value="option2">Venture Capital Fund</option>
+                <option value="option3">Family House</option>
+                <option value="option4">Angel Syndicate</option>
+              </select>
+
+              <input type="text" class="form-control input-form" id="input1" placeholder="Designation" />
+
+              <input type="text" class="form-control input-form" id="input1" placeholder="Linkedin URL*" />
+
+              <input type="text" class="form-control input-form" id="input1" placeholder="Website URL" />
+
+              <input type="tel" class="form-control input-form" id="input1" maxlength="10" placeholder="Mobile no*">
+
+              <input type="email" class="form-control input-form" id="input1" placeholder="Email ID*" />
+
+              <input type="text" class="form-control input-form" id="input1" placeholder="Preferred Mode Of Investment" />
+
+            </div>
+
+            <button type="submit" class="btn px-4 py-2 form-submit-button"> Submit
+              <span class="material-symbols-outlined" style="padding-left: 10%;"> send </span>
+            </button>
+
+            <!-- Add more form fields here as needed -->
+          </form>
+        </div>
+        <div class="form-container form-text" style="display:none;">
+          <!-- Form for Option 2 -->
+          <form>
+            <h4 style="padding-bottom:5%;">Together we can bring lot of values for each other - Induckt's Founder</h4>
+            <div class="form-group">
+              <input type="text" class="form-control input-form" id="input1" placeholder="Name*" />
+
+              <select class="form-control input-form" id="organizationType">
+                <option value="">Type*</option>
+                <option value="option1">Founder</option>
+                <option value="option2">Investment Banker</option>
+                <option value="option3">Deal Scouter</option>
+              </select>
+
+              <input type="text" class="form-control input-form" id="input1" placeholder="Linkedin URL*" />
+
+              <input type="tel" class="form-control input-form" id="input1" maxlength="10" placeholder="Mobile no*">
+
+              <input type="email" class="form-control input-form" id="input1" placeholder="Email ID*" />
+
+              <input type="text" class="form-control input-form" id="input1" placeholder="Preferred Mode Of Investment" />
+            </div>
+
+            <button type="submit" class="btn px-4 py-2 form-submit-button"> Submit
+              <span class="material-symbols-outlined" style="padding-left: 10%;"> send </span>
+            </button>
+
+            <!-- Add more form fields here as needed -->
+          </form>
+        </div>
+        <div class="form-container form-text" style="display:none;">
+          <!-- Form for Option 3 -->
+          <form>
+            <h4 style="padding-bottom:5%;">Together we can bring lot of values for each other - Induckt's Founder</h4>
+            <div class="form-group">
+              <input type="text" class="form-control input-form" id="input1" placeholder="Name*" />
+
+              <select class="form-control input-form" id="organizationType">
+                <option value="">Select Organization Type</option>
+                <option value="option1">Incubator</option>
+                <option value="option2">Accelerator</option>
+                <option value="option3">Service Provider</option>
+                <option value="option4">State Government</option>
+              </select>
+
+              <input type="text" class="form-control input-form" id="input1" placeholder="Linkedin URL*" />
+
+              <input type="tel" class="form-control input-form" id="input1" maxlength="10" placeholder="Mobile no*">
+
+              <input type="email" class="form-control input-form" id="input1" placeholder="Email ID*" />
+
+              <input type="text" class="form-control input-form" id="input1" placeholder="Preferred Mode Of Investment" />
+            </div>
+
+            <button type="submit" class="btn px-4 py-2 form-submit-button"> Submit
+              <span class="material-symbols-outlined" style="padding-left: 10%;"> send </span>
+            </button>
+
+            <!-- Add more form fields here as needed -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+
+  <style>
+    .insta-card::before {
+      background-color: #ffffff;
+    }
+  </style>
+
+
+  <!-- Follow Us Section -->
+
+  <section id="cta">
+
+    <div class="container-fluid">
+
+      <div class="title-story-parent">
+        <h1 class="title-story">Follow Us</h1>
+        <img class="logic-gate-child" alt="" src="./images/icons/vector-5.svg">
+      </div>
+
+      <div class="row" style="height: auto;">
+        <div class="col-md-6">
+          <!-- Social card image -->
+          <img src="./images/social-card.png" alt="" style="width: 100%; max-width: 550px; height: auto;">
+        </div>
+
+        <div class="col-md-3">
+          <div class="card insta-card" style="background-color: white; border-radius: 5%; height: auto; height: 100%; max-height: 500px;">
+            <!-- Card Header -->
+            <div class="card-header">
+              <div class="d-flex align-items-center">
+                <img src="./images/oval@2x.png" alt="User Icon" class="rounded-circle mr-2" style="width: 40px;">
+                <div style="text-align: left; font-size: 0.7rem;">
+                  <h6 class="mb-0">Induct</h6>
+                  <p class="text-muted mb-0">Delhi, India</p>
+                </div>
+                <span class="ml-auto"> ... </span>
+              </div>
+            </div>
+
+            <!-- Card Image -->
+            <img src="./images/rectangle@2x.png" class="card-img-top" alt="Post Image"
+              style="width: 100%; height: 100%; max-height: 500px;">
+
+            <!-- Card Footer -->
+            <div class="card-footer d-flex justify-content-between">
+              <!-- Left Corner Buttons -->
+              <div>
+                <!-- Like, Comment, Share Icons -->
+                <span class="mr-3"><i class="far fa-heart"></i></span>
+                <span class="mr-3"><i class="far fa-comment"></i></span>
+                <span class="mr-3"><i class="far fa-paper-plane"></i></span>
+              </div>
+              <!-- Right Corner Button -->
+              <span><i class="far fa-bookmark"></i></span>
+            </div>
+          </div>
+          <br>
+        </div>
+
+        <div class="col-md-3">
+          <div class="row yt-card">
+            <div class="col-md-6 yt-card-description">
+              <i class="fab fa-youtube" style="color: #ff0000;"></i>
+              <h6>Induct Startup Stories Story no. 1</h6>
+              <p class="text-muted mb-0">youtube.com</p>
+
+            </div>
+            <div class="col-md-6 yt-card-description">
+              <img src="./images/image-hfull@2x.png" class="image-h-full-icon" alt="" width="">
+            </div>
+          </div><br>
+
+          <div class="row yt-card">
+            <div class="col-md-5 twitter-card">
+              <div class="yt-card-description">
+                <i class="fab fa-twitter" style="color: #55ACEE;"></i>
+                <h6>We are accelerating the startup ecosystem</h6>
+                <p class="text-muted mb-0">x.com</p>
+
+              </div>
+            </div>
+
+            <div class="col-md-2" style="background-color: white;">
+
+            </div>
+
+            <div class="col-md-5 linkedin-card">
+              <div class="yt-card-description">
+                <i class="fab fa-linkedin" style="color: #006699;"></i>
+                <h6>Wanna Join! Induct Startup accelerator?</h6>
+                <p class="text-muted mb-0">linkedin.com</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Red Banner -->
+
+  <section class="colored-section" id="cta">
+    <div class="container-fluid" style="margin-bottom: -5%;">
+      <div class="row">
+        <!-- First image column -->
+        <div class="col-md-6">
+          <div class="image-wrapper red-img1">
+            <img src="./images/Rectangle 20.png" alt="Image 1">
+          </div>
+        </div>
+
+        <!-- Second image (video) column -->
+        <div class="col-md-6">
+          <div class="image-wrapper text-center">
+            <img src="./images/unsplash_bzqU01v-G54.png" alt="Image 2" class="smaller-image">
+            <button class="play-button"><i class="fas fa-play" style="color: white;"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional section -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="additional-section">
+            <!-- Your content here -->
+            <div class="row">
+              <div class="col-md-4">
+                <div class="inner-section">
+                  <!-- Content for first inner section -->
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="inner-section">
+                  <!-- Content for second inner section -->
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="inner-section">
+                  <!-- Content for third inner section -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New section with dark background -->
+      <div class="dark-section">
+        <div class="row">
+          <!-- Column 1 -->
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="inner-section" style="display: flex; align-items: center;">
+                  <img src="./images/icons/group-3.svg" alt="" style="max-width: 150%; margin-right: 20px;">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="text-content inner-section-text" style="padding-top: 3%;">
+                  <h3>Who we are</h3>
+                  <p style="padding-right: 10%; color: white;">We excel in global markets, empowering clients to achieve
+                    financial goals with forward-thinking strategies.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="inner-section" style="display: flex; align-items: center;">
+                  <img src="./images/icons/group-3-1.svg" alt="" style="max-width: 150%; margin-right: 20px;">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="text-content inner-section-text" style="padding-top: 3%;">
+                  <h3>What we do</h3>
+                  <p style="padding-right: 10%; color: white;">We foster financial growth through strategic investment
+                    management, maximizing returns in a dynamic global market. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="inner-section" style="display: flex; align-items: center;">
+                  <img src="./images/icons/group-3-2.svg" alt="" style="max-width: 150%; margin-right: 20px;">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="text-content inner-section-text" style="padding-top: 3%;">
+                  <h3>Vakues</h3>
+                  <p style="padding-right: 10%; color: white;">Our core values drive us to empower globally with sound
+                    financial strategies, fostering lasting prosperity and peace of mind. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Thoughts of our Clients -->
+
+  <div class="container-fluid" style="margin-top: 5%;">
+    <div class="title-story-parent">
+      <h1 class="title-story">Thoughts of our Clients</h1>
+      <img class="logic-gate-child" alt="" src="./images/icons/vector-5.svg">
+    </div>
+    <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators" style="color:black;">
+        <li data-target="#carouselExampleIndicators3" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators3" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators3" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card insta-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: #EECECB;">
+
+
+                <!-- Card Image -->
+                <img src="./images/Rectangle 2404.png" class="card-img-top" alt="Post Image"
+                  style="width: 100%; height: 250px;">
+
+                <!-- Card Footer -->
+                <div class="card-footer d-flex justify-content-between">
+                  <div>
+                    <h5><strong>Dr. Eli Coleman, phD</strong></h5>
+                    <p style="color: #000;"> If you're coaching individuals or teams in specific areas like sports,
+                      business, or fitness, you may receive feedback in the form of improved performance metrics. </p>
+                  </div>
+                </div>
+              </div>
+              <br>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card insta-card client-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: #DDE5F4;">
+                <!-- Card Header -->
+                <div class="card-header">
+                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
+                    <img src="./images/Ellipse 1384.png" alt="User Icon" class="rounded-circle mr-2"
+                      style="width: 40px;">
+                    <div style="text-align: left; font-size: 0.7rem;">
+                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
+                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
+                    </div><br>
+                  </div>
+                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
+                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
+                    as increased revenue, improved athletic performance.</p>
+
+                </div>
+
+              </div>
+              <br>
+            </div>
+
+
+            <div class="col-md-3">
+              <div class="card insta-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: white; position: relative;">
+
+                <!-- Card Image -->
+                <img src="./images/Rectangle 2406.png" class="card-img-top" alt="Post Image"
+                  style="width: 100%; height: 420px;">
+
+                <div
+                  style="position: absolute; bottom: 4%; left: 2%; right: 2%; background-color: red; border-radius: 25px; padding: 10px; display: flex; align-items: center;">
+                  <i class="fab fa-youtube" style="color: white; font-size: 28px;"></i>
+                  <span style="color: white; margin-left: 10px;">Jordan Nilsen <br> 1:24</span>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card insta-card client-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: #FFD9D6;">
+                <!-- Card Header -->
+                <div class="card-header">
+                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
+                    <img src="./images/Ellipse 1385.png" alt="User Icon" class="rounded-circle mr-2"
+                      style="width: 40px;">
+                    <div style="text-align: left; font-size: 0.7rem;">
+                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
+                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
+                    </div><br>
+                  </div>
+                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
+                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
+                    as increased revenue, improved athletic performance.</p>
+
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card insta-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: #EECECB;">
+
+
+                <!-- Card Image -->
+                <img src="./images/Rectangle 2404.png" class="card-img-top" alt="Post Image"
+                  style="width: 100%; height: 250px;">
+
+                <!-- Card Footer -->
+                <div class="card-footer d-flex justify-content-between">
+                  <div>
+                    <h5><strong>Dr. Eli Coleman, phD</strong></h5>
+                    <p style="color: #000;"> If you're coaching individuals or teams in specific areas like sports,
+                      business, or fitness, you may receive feedback in the form of improved performance metrics. </p>
+                  </div>
+                </div>
+              </div>
+              <br>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card insta-card client-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: #DDE5F4;">
+                <!-- Card Header -->
+                <div class="card-header">
+                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
+                    <img src="./images/Ellipse 1384.png" alt="User Icon" class="rounded-circle mr-2"
+                      style="width: 40px;">
+                    <div style="text-align: left; font-size: 0.7rem;">
+                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
+                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
+                    </div><br>
+                  </div>
+                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
+                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
+                    as increased revenue, improved athletic performance.</p>
+
+                </div>
+
+              </div>
+              <br>
+            </div>
+
+
+            <div class="col-md-3">
+              <div class="card insta-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: white; position: relative;">
+
+                <!-- Card Image -->
+                <img src="./images/Rectangle 2406.png" class="card-img-top" alt="Post Image"
+                  style="width: 100%; height: 420px;">
+
+                <div
+                  style="position: absolute; bottom: 4%; left: 2%; right: 2%; background-color: red; border-radius: 25px; padding: 10px; display: flex; align-items: center;">
+                  <i class="fab fa-youtube" style="color: white; font-size: 28px;"></i>
+                  <span style="color: white; margin-left: 10px;">Jordan Nilsen <br> 1:24</span>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card insta-card client-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: #FFD9D6;">
+                <!-- Card Header -->
+                <div class="card-header">
+                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
+                    <img src="./images/Ellipse 1385.png" alt="User Icon" class="rounded-circle mr-2"
+                      style="width: 40px;">
+                    <div style="text-align: left; font-size: 0.7rem;">
+                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
+                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
+                    </div><br>
+                  </div>
+                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
+                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
+                    as increased revenue, improved athletic performance.</p>
+
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card insta-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: #EECECB;">
+
+
+                <!-- Card Image -->
+                <img src="./images/Rectangle 2404.png" class="card-img-top" alt="Post Image"
+                  style="width: 100%; height: 250px;">
+
+                <!-- Card Footer -->
+                <div class="card-footer d-flex justify-content-between">
+                  <div>
+                    <h5><strong>Dr. Eli Coleman, phD</strong></h5>
+                    <p style="color: #000;"> If you're coaching individuals or teams in specific areas like sports,
+                      business, or fitness, you may receive feedback in the form of improved performance metrics. </p>
+                  </div>
+                </div>
+              </div>
+              <br>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card insta-card client-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: #DDE5F4;">
+                <!-- Card Header -->
+                <div class="card-header">
+                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
+                    <img src="./images/Ellipse 1384.png" alt="User Icon" class="rounded-circle mr-2"
+                      style="width: 40px;">
+                    <div style="text-align: left; font-size: 0.7rem;">
+                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
+                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
+                    </div><br>
+                  </div>
+                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
+                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
+                    as increased revenue, improved athletic performance.</p>
+
+                </div>
+
+              </div>
+              <br>
+            </div>
+
+
+            <div class="col-md-3">
+              <div class="card insta-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: white; position: relative;">
+
+                <!-- Card Image -->
+                <img src="./images/Rectangle 2406.png" class="card-img-top" alt="Post Image"
+                  style="width: 100%; height: 420px;">
+
+                <div
+                  style="position: absolute; bottom: 4%; left: 2%; right: 2%; background-color: red; border-radius: 25px; padding: 10px; display: flex; align-items: center;">
+                  <i class="fab fa-youtube" style="color: white; font-size: 28px;"></i>
+                  <span style="color: white; margin-left: 10px;">Jordan Nilsen <br> 1:24</span>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card insta-card client-card"
+                style="border-radius: 8%; height: auto; text-align: left; background-color: #FFD9D6;">
+                <!-- Card Header -->
+                <div class="card-header">
+                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
+                    <img src="./images/Ellipse 1385.png" alt="User Icon" class="rounded-circle mr-2"
+                      style="width: 40px;">
+                    <div style="text-align: left; font-size: 0.7rem;">
+                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
+                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
+                    </div><br>
+                  </div>
+                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
+                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
+                    as increased revenue, improved athletic performance.</p>
+
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators3" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- Partners -->
+
+  <div>
+    <h1 class="partner-heading">Partners</h1>
+    <img class="logic-gate-child" alt="" src="./images/icons/vector-5.svg">
+
+    <div class="partner-text">
+      <h2><strong>We work with over 279+ investors all over the world.</strong></h2>
+      <p>Suspendisse eget ultricies felis, in lacinia lectus. Morbi accumsan dapibus tortor, in fermentum odio malesuada
+        in aliquam sed ipsum tristique.</p>
+    </div>
+
+    <div class="partners-container" style="background-image: url(./images/partner.png); ">
+    </div>
+  </div>
+
+  <!-- Earth Globe  -->
+<center>
+  <section class="colored-section globe-cards" id="cta" style="margin-top: 10%;">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- First image column -->
+        <div class="col-md-6 earth-globe-left ">
+          <p class="earth-globe-description">Induckt Knowledge</p>
+          <h3 class="earth-globe-text"> Let our world of knowledge be your trusted guide. </h3>
+          <p class="earth-globe-description">With a relentless commitment to excellence and a forward-thinking approach,
+            we empower investors to achieve their financial goals and secure their future. Join us on this journey
+            towards financial success and discover the difference of partnering with a truly dynamic and visionary firm.
+          </p>
+        </div>
+
+        <!-- Second image (video) column -->
+        <div class="col-md-6">
+          <div class="globe-container">
+            <canvas class="globe-canvas"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- New section with dark background -->
+      <div class="div-col-span-12-wrapper">
+        <div class="div-col-span-12">
+          <div class="div-relative">
+            <div class="div-h-full"></div>
+            <img class="div-relative-icon2" loading="lazy" alt="" src="./images/div-relative-2@2x.png">
+          </div>
+          <div class="div-relative1">
+            <div class="div-h-full1"></div>
+            <img class="div-relative-icon3" loading="lazy" alt="" src="./images/div-relative-3@2x.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</center>
+
+
+
+  <!-- Live Events & Show -->
+
+  <div class="container-fluid even-heading">
+    <div class="title-story-parent">
+      <h1 class="title-story">Live Events & Show</h1>
+      <img class="logic-gate-child" alt="" src="./images/icons/vector-5.svg">
+    </div>
+  </div>
+
+  <div class="container-fluid event" style="margin-top: -7%;">
+    <h1 style="color: white; text-align: left; font-family: 'JetBrains Mono', monospace;">Latest Event & Show</h1>
+    <div class="divider"></div>
+
+    <div class="row">
+      <div class="col-md-6" style="padding-bottom: 2%;">
+        <p style="color: white; text-align: left;"> Donec suscipit dictum risus sed dignissim. Fusce ex leo, lobortis
+          sed ullamcorper in, rutrum eu enim. </p>
+      </div>
+
+      <div class="col-md-6">
+        <div class="even-arrow-section">
+          <button class="even-arrow-circle" id="prevBtn">
+            <i class="fas fa-arrow-left even-arrow"></i>
+          </button>
+          <button class="even-arrow-circle even-arrow" id="nextBtn">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5 even-box" style="margin-right: 3%;">
+        <!-- Added margin-right -->
+        <p>
+          <i class="far fa-calendar" style="color: #1777E5;"></i> <span>8 Sep,2020</span>
+          <i class="fas fa-map-marker-alt" style="color: #1777E5;"></i> <span>Place</span>
+        </p>
+        <h4 style="text-align: left;">BMA Events</h4 style="text-align: left;">
+        <p> Quisque vitae ante dolor. Duis vehicula purus eget libero interdum ornare. Vestibulum ut risus nec odio
+          rhoncus malesuada. Duis lobortis consectetur magna, in faucibus mauris congue tempor.</p>
+      </div>
+
+      <div class="col-md-5 even-box">
+        <p>
+          <i class="far fa-calendar" style="color: #1777E5;"></i> <span>8 Sep,2020</span>
+          <i class="fas fa-map-marker-alt" style="color: #1777E5;"></i> <span>Place</span>
+        </p>
+        <h4 style="text-align: left;">Seed Fund Event - 2024</h4 style="text-align: left;">
+        <p> Quisque vitae ante dolor. Duis vehicula purus eget libero interdum ornare. Vestibulum ut risus nec odio
+          rhoncus malesuada. Duis lobortis consectetur magna, in faucibus mauris congue tempor.</p>
+      </div>
+
+      <div class="col-md-5 even-box" style="margin-right: 3%;">
+        <!-- Added margin-right -->
+        <p>
+          <i class="far fa-calendar" style="color: #1777E5;"></i> <span>8 Sep,2020</span>
+          <i class="fas fa-map-marker-alt" style="color: #1777E5;"></i> <span>Place</span>
+        </p>
+        <h4 style="text-align: left;">BMA Events Part-2</h4 style="text-align: left;">
+        <p> Quisque vitae ante dolor. Duis vehicula purus eget libero interdum ornare. Vestibulum ut risus nec odio
+          rhoncus malesuada. Duis lobortis consectetur magna, in faucibus mauris congue tempor.</p>
+      </div>
+
+      <div class="col-md-5 even-box">
+        <p>
+          <i class="far fa-calendar" style="color: #1777E5;"></i> <span>8 Sep,2020</span>
+          <i class="fas fa-map-marker-alt" style="color: #1777E5;"></i> <span>Place</span>
+        </p>
+        <h4 style="text-align: left;">Seed Fund Event - 2024 Part-2</h4 style="text-align: left;">
+        <p> Quisque vitae ante dolor. Duis vehicula purus eget libero interdum ornare. Vestibulum ut risus nec odio
+          rhoncus malesuada. Duis lobortis consectetur magna, in faucibus mauris congue tempor.</p>
+      </div>
+
+      <div class="col-md-5 even-box" style="margin-right: 3%;">
+        <!-- Added margin-right -->
+        <p>
+          <i class="far fa-calendar" style="color: #1777E5;"></i> <span>8 Sep,2020</span>
+          <i class="fas fa-map-marker-alt" style="color: #1777E5;"></i> <span>Place</span>
+        </p>
+        <h4 style="text-align: left;">BMA Events Part-3</h4 style="text-align: left;">
+        <p> Quisque vitae ante dolor. Duis vehicula purus eget libero interdum ornare. Vestibulum ut risus nec odio
+          rhoncus malesuada. Duis lobortis consectetur magna, in faucibus mauris congue tempor.</p>
+      </div>
+
+      <div class="col-md-5 even-box">
+        <p>
+          <i class="far fa-calendar" style="color: #1777E5;"></i> <span>8 Sep,2020</span>
+          <i class="fas fa-map-marker-alt" style="color: #1777E5;"></i> <span>Place</span>
+        </p>
+        <h4 style="text-align: left;">Seed Fund Event - 2024 Part-3</h4 style="text-align: left;">
+        <p> Quisque vitae ante dolor. Duis vehicula purus eget libero interdum ornare. Vestibulum ut risus nec odio
+          rhoncus malesuada. Duis lobortis consectetur magna, in faucibus mauris congue tempor.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const boxContainers = document.querySelectorAll('.row > .even-box');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const boxCount = boxContainers.length;
+      let currentIndex = 0;
+
+      function showBoxes() {
+        boxContainers.forEach(function (box, index) {
+          if (index >= currentIndex && index < currentIndex + 2) {
+            box.style.display = 'block'; // Show boxes within currentIndex and currentIndex + 2
+          } else {
+            box.style.display = 'none'; // Hide other boxes
+          }
+        });
+      }
+
+      showBoxes();
+
+      prevBtn.addEventListener('click', function () {
+        if (currentIndex > 0) {
+          currentIndex -= 2;
+          showBoxes();
+        }
+      });
+
+      nextBtn.addEventListener('click', function () {
+        if (currentIndex + 2 < boxCount) {
+          currentIndex += 2;
+          showBoxes();
+        }
+      });
+    });
+  </script>
+
+
+
+  <!-- Blog Section -->
+
+  <section class="blog" style="margin-top: -5%; ">
+    <div class="title-story-parent" style="margin-top: 5%; padding-top: 10%;">
+      <h1 class="title-story">Blogs</h1>
+      <img class="logic-gate-child" alt="" src="./images/icons/vector-5.svg">
+    </div>
+
+    <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators" style="color:black;">
+        <li data-target="#carouselExampleIndicators4" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators4" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators4" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="card-group">
+            <div class="card card-slider">
+              <div class="row no-gutters">
+                <div class="col-md-10 card-left-line">
+                  <img src="./images/blog1.png" class="card-img-right" alt="..." style="width: 100%; height: 320px;">
+
+                  <div class="blog-text">
+                    <h2> Plug-and-play integrations. </h2>
+                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
+                      workforce population. </p>
+                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
+                        style="color: #0000FF;"></i></a><br>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="card card-slider">
+              <div class="row no-gutters">
+                <div class="col-md-10 card-left-line">
+                  <img src="./images/blog2.png" class="card-img-right" alt="..." style="width: 100%;  height: 320px;">
+
+                  <div class="blog-text">
+                    <h2> Plug-and-play integrations. </h2>
+                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
+                      workforce population. </p>
+                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
+                        style="color: #0000FF;"></i></a>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card-group">
+            <div class="card card-slider">
+              <div class="row no-gutters">
+                <div class="col-md-10 card-left-line">
+                  <img src="./images/blog1.png" class="card-img-right" alt="..." style="width: 100%; height: 320px;">
+
+                  <div class="blog-text">
+                    <h2> Plug-and-play integrations. </h2>
+                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
+                      workforce population. </p>
+                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
+                        style="color: #0000FF;"></i></a><br>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="card card-slider">
+              <div class="row no-gutters">
+                <div class="col-md-10 card-left-line">
+                  <img src="./images/blog2.png" class="card-img-right" alt="..." style="width: 100%;  height: 320px;">
+
+                  <div class="blog-text">
+                    <h2> Plug-and-play integrations. </h2>
+                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
+                      workforce population. </p>
+                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
+                        style="color: #0000FF;"></i></a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card-group">
+            <div class="card card-slider">
+              <div class="row no-gutters">
+                <div class="col-md-10 card-left-line">
+                  <img src="./images/blog1.png" class="card-img-right" alt="..." style="width: 100%; height: 320px;">
+
+                  <div class="blog-text">
+                    <h2> Plug-and-play integrations. </h2>
+                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
+                      workforce population. </p>
+                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
+                        style="color: #0000FF;"></i></a><br>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="card card-slider">
+              <div class="row no-gutters">
+                <div class="col-md-10 card-left-line">
+                  <img src="./images/blog2.png" class="card-img-right" alt="..." style="width: 100%;  height: 320px;">
+
+                  <div class="blog-text">
+                    <h2> Plug-and-play integrations. </h2>
+                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
+                      workforce population. </p>
+                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
+                        style="color: #0000FF;"></i></a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators4" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators4" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+
+  <footer id="footer" style="margin-top: 5%;">
+    <div class="row">
+      <div class="col-md-6 footer-left">
+        <img src="./images/logo-footer.png" alt="Logo">
+        <p>Induckt Global is redefining the landscape of asset management. With a commitment to excellence and a focus
+          on client success, we leverage expertise and innovation to navigate global markets, optimize portfolios, and
+          secure long-term financial growth.</p>
+      </div>
+      <div class="col-md-6 footer-right">
+        <h4>Sign up to get Induckt Global's newsletter delivered to your Inbox.</h4>
+        <div class="subscribe-form">
+          <input type="email" class="email-input" placeholder="Enter your email...">
+          <button type="submit" class="subscribe-button">Subscribe</button>
+        </div>
+      </div>
+    </div><br>
+
+    <div class="row">
+      <div class="col-md-2">
+        <div class="footer-icons">
+          <div class="row-container">
+            <div class="circle-container">
+              <a href="https://www.facebook.com">
+                <svg class="svg-content" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                  <path
+                    d="M279.1 288l14.2-92.7h-88.9v-60.1c0-25.4 12.4-50.1 52.2-50.1h40.4V6.3S260.4 0 225.4 0c-73.2 0-121.1 44.4-121.1 124.7v70.6H22.9V288h81.4v224h100.2V288z" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="circle-container">
+              <a href="https://www.instagram.com">
+                <svg class="svg-content" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <path
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="circle-container">
+              <a href="https://www.linkedin.com">
+                <svg class="svg-content" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <path
+                    d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-10">
+        <div class="row justify-content-end">
+
+          <div class="col-md-2 ps-2 footer-menu"><a href="#"
+              style="display: flex; text-decoration: none;"><span>Home</span></a></div>
+
+          <div class="col-md-2 ps-2 footer-menu">
+            <a href="#" style="display: flex; text-decoration: none;">
+              <span>Acceleration</span>
+              <span class="material-symbols-outlined" style="margin-left: 5px; color:#0FBE21;">arrow_outward</span>
+            </a>
+          </div>
+
+          <div class="col-md-2 ps-2 footer-menu">
+            <a href="#" style="display: flex; text-decoration: none;">
+              <span>Visionfund</span>
+              <span class="material-symbols-outlined" style="margin-left: 5px; color:#0FBE21;">arrow_outward</span>
+            </a>
+          </div>
+
+          <div class="col-md-2 ps-2 footer-menu">
+            <a href="#" style="display: flex; text-decoration: none;">
+              <span>Traction Angel Investors Platform</span>
+              <span class="material-symbols-outlined" style="margin-left: 5px; color:#0FBE21;">arrow_outward</span>
+            </a>
+          </div>
+
+          <div class="col-md-2 ps-2 footer-menu"><a href="#" style="display: flex; text-decoration: none;"><span>Get in
+                touch</span></a></div>
+          <div class="col-md-2 ps-2 footer-menu"><a href="#"
+              style="display: flex; text-decoration: none;"><span>FAQs</span></a></div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </footer>
+
+  <div class="footer-bottom">
+    <hr style="border-top: 1px solid white;">
+    <p style="color: white;">Induckt Global @2024</p>
+  </div>
+
+
+
+  <script>
+    // JavaScript to detect macOS and apply specific CSS class
+    if (navigator.userAgent.indexOf("Macintosh") !== -1) {
+      document.documentElement.classList.add('mac-os');
+    }
+  </script>
+
+  <script src="./js/form.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="./js/earth-globe.js"></script>
+  <script src="js/navbar.js"></script>
+
+
+</body>
+
+</html>

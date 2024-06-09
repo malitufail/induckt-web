@@ -1,0 +1,1366 @@
+body {
+  /* font-family: "Montserrat"; */
+  font-family: "Poppins", sans-serif; 
+  text-align: center;
+  overflow-x: hidden;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "public-sans", sans-serif;
+}
+
+p {
+  color: #8f8f8f;
+}
+
+
+.carousel-indicators {
+ 
+  bottom: -50px;
+
+}
+
+/* -------------------------------- */
+/* Main Banner */
+/* -------------------------------- */
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  /* No border radius */
+  background-color: #9C261E;
+  /* Red background color */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Default shadow */
+  transition: box-shadow 0.3s, transform 0.3s;
+  height: 500px;
+  /* Set a fixed height for the card */
+}
+
+.card:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  /* Increased shadow on hover */
+  transform: translateY(-5px);
+  /* padding-bottom: 25%; */
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: url('./images/b2.png');  */
+  background-color: #E5190B;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.9;
+  /* Set the opacity to make the background image visible */
+  transition: opacity 0.3s;
+}
+
+.card:hover::before {
+  opacity: 0.7;
+  /* Keep opacity at 0.7 even on hover */
+}
+
+
+.card-body {
+  height: 100%;
+  /* Fill the entire height of the card */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding-bottom: 10%;
+  line-height: 1;
+
+}
+
+.card-text {
+  white-space: nowrap;
+  /* Limit text to one line */
+  overflow: hidden;
+  /* text-overflow: ellipsis; // Add ellipsis (...) for overflow text */
+  font-family: "public-sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  color: white;
+  font-size: 3.5rem;
+  text-align: left;
+}
+
+
+.card-link {
+  font-family: "Poppins", sans-serif; 
+   font-weight: 800;
+  color: white;
+  font-size: 2rem;
+  text-align: left;
+}
+
+
+/* Headings */
+
+.big-heading {
+  font-family: "public-sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.small-heading {
+  font-family: "Poppins", sans-serif; 
+  font-weight: 300;
+  font-size: 1.8rem;
+  padding-top: 7%;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.section-heading {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+/* Containers */
+
+.container-fluid {
+  padding: 7% 15%;
+}
+
+/* Sections */
+
+.colored-section {
+  background-color: #E5190B;
+  background: linear-gradient(315deg, #F51202 0%, #8F0B01 100%);
+  color: #fff;
+}
+
+
+.white-section {
+  background-color: #fff;
+}
+
+/* Navigation Bar */
+
+.navbar {
+  padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
+  width: 200px;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: "Poppins", sans-serif; 
+}
+
+/* Buttons */
+
+.download-button {
+  margin: 5% 3% 5% 0;
+}
+
+/* Title Section */
+
+@keyframes slide {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+#title {
+  background-image: url("../images/bg0.png");
+  background-repeat: no-repeat;
+  background-size: 120% auto;
+  /* Double the width for smooth sliding */
+  color: #fff;
+  text-align: left;
+  animation: slide 10s linear infinite;
+  /* Adjust the duration as needed */
+}
+
+#title .container-fluid {
+  padding: 3% 10% 0%;
+}
+
+/* -------------------------------- */
+/* Features Section */
+/* -------------------------------- */
+
+.white-section {
+  background-color: #ffffff;
+  /* Set background color as needed */
+  padding-top: 40px;
+  margin-bottom: -5%;
+}
+
+.feature-box {
+  text-align: center;
+  position: relative;
+  background-color: #F6F6F6;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.feature-box img {
+  width: 100px;
+  /* Adjust the width as needed */
+  height: 100px;
+  /* Adjust the height as needed */
+}
+
+.feature-title {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: 3.5rem;
+  color: #473082;
+  position: relative;
+  display: inline-block;
+  font-weight: 900;
+}
+
+.feature-title::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -60%;
+  /* Adjust the distance of the line from the text */
+  height: 100px;
+  width: 1px;
+  /* Adjust the width of the vertical line */
+  background-color: black;
+  /* Set color of the vertical line */
+}
+
+.feature-box:last-child .feature-title::after {
+  display: none;
+  /* Hides the vertical line for the last item */
+}
+
+.feature-description {
+  font-family: inherit;
+  font-size: 1.2rem;
+  color: #473082;
+  font-weight: 900;
+}
+
+.feature-box:hover .feature-title {
+  color: #E5190B;
+  /* Change text color to red on hover */
+}
+
+.feature-box:hover .feature-description {
+  color: #E5190B;
+  /* Change text color to red on hover */
+}
+
+@media (max-width: 768px) {
+  .feature-title::after {
+    display: none;
+  }
+}
+
+/* -------------------------------- */
+/* Testimonial Section */
+/* -------------------------------- */
+
+#testimonials {
+  background-color: #ef8172;
+}
+
+.testimonial-text {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+.testimonial-image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+
+#press {
+  background-color: #ef8172;
+  padding-bottom: 3%;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px 20px 50px;
+}
+
+/* Pricing Section */
+
+#pricing {
+  /* padding: 60px; */
+  padding-bottom: 4%;
+  margin-bottom: -6.9%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.price-text {
+  font-size: 3rem;
+  line-height: 1.5;
+
+}
+
+.pricing-column {
+  padding: 3% 0%;
+
+}
+
+/* CTA Section */
+
+
+/* Footer Section */
+
+
+.social-icon {
+  margin: 20px 10px;
+}
+
+
+/* -------------------------------- */
+/* Dot card slider  */
+/* -------------------------------- */
+
+.logic-gate-child {
+  height: 9.7px;
+  width: 168.9px;
+  position: relative;
+  object-fit: contain;
+}
+
+.title-story {
+  font-weight: 800;
+}
+
+.title-story-parent {
+  margin-bottom: 5%;
+  margin-top: 8%;
+}
+
+.card-img-right {
+  width: 200px;
+}
+
+.card-left-line {
+  text-align: left;
+  color: #000;
+  position: relative;
+  /* Set position to relative */
+
+}
+
+.card-left-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  /* Width of the vertical line */
+  height: 170px;
+  /* Cover full height */
+  background-color: #000;
+  /* Color of the line */
+
+}
+
+.card-left-text {
+  text-align: left;
+  color: #000;
+  padding-left: 5%;
+
+}
+
+.card-group {
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: white;
+  padding-bottom: 5%;
+
+}
+
+.card-slider {
+  position: relative;
+  overflow: none;
+  border-radius: 0;
+  /* No border radius */
+  background-color: #ffffff;
+  /* Red background color */
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  /* Default shadow */
+  transition: box-shadow 0s, transform 0s;
+  border: 0;
+  height: auto;
+}
+
+.card-slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: url('./images/b2.png');  */
+  background-color: #ffffff;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0;
+  /* Set the opacity to make the background image visible */
+  transition: opacity 0s;
+}
+
+.carousel-indicators .active {
+  background-color: black;
+  width: 10px;
+  /* Same width as inactive indicators */
+  height: 10px;
+  /* Same height as inactive indicators */
+  border-radius: 50%;
+}
+
+.carousel-indicators li {
+  position: relative;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  width: 10px;
+  height: 10px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  background-color: rgba(82, 74, 74, 0.5);
+  border-radius: 50%;
+}
+
+
+
+.card-slider-text {
+  font-style: italic;
+  text-align: left;
+  font-weight: 800;
+
+}
+
+.card-slider-description {
+  text-align: left;
+  font-weight: 800;
+
+}
+
+.north-east-icon {
+  float: left;
+  /* Align the container to the left */
+  margin-right: 20px;
+  /* Adjust margin to create space */
+  padding-left: 10px;
+  /* Adjust padding if needed */
+}
+
+.additional-box {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.card1-3 {
+  padding-top: 30%;
+}
+
+.card2 {
+  /* code here */
+}
+
+/* -------------------------------- */
+/* Follow UP */
+/* -------------------------------- */
+
+.image-h-full-icon {
+  height: 127px;
+  max-width: 100%;
+
+}
+
+.yt-card {
+  background-color: #FFF0F0;
+  border-radius: 5%;
+  font-size: 0.8rem;
+}
+
+.yt-card-description {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  text-align: left;
+}
+
+.twitter-card {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: #FFF0F0;
+  border-radius: 5%;
+  margin-right: 6%;
+}
+
+.linkedin-card {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: #FFF0F0;
+  border-radius: 5%;
+  margin-left: -12%;
+}
+
+/* -------------------------------- */
+/* Red Banner */
+/* -------------------------------- */
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.smaller-image {
+  max-width: 70%;
+  height: 300px;
+  /* Adjust the percentage as needed */
+  max-height: auto;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+  /* background-color: rgba(17, 0, 255, 0.5); */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+}
+
+.additional-section {
+  margin-top: -25vh;
+  /* Adjust this value to overlap the previous section */
+  background-color: blue;
+  /* Change this to your desired color */
+  border-radius: 10% 10% 0 0;
+  padding: 0[x] 0;
+  /* Adjust padding as needed */
+  position: relative;
+  z-index: -1;
+  /* Ensure this section stays behind the red box */
+}
+
+.inner-section {
+  background-color: white;
+  /* Or any other color you prefer */
+  padding: 0px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+}
+
+.red-img1 {
+  height: 42vh;
+}
+
+/* New section with dark background */
+.dark-section {
+  background-color: #1D1D1D;
+  /* Dark color */
+  width: 100%;
+  /* 100% width of the container */
+  position: relative;
+  float: left;
+  border-radius: 2%;
+  /* margin-top: -7%; */
+}
+
+.dark-section .inner-section {
+  background-color: #1D1D1D;
+}
+
+.dark-section .inner-section-text {
+  text-align: left;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.smaller-image {
+  max-width: 70%;
+  height: 300px;
+  /* Adjust the percentage as needed */
+  max-height: auto;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+  /* background-color: rgba(17, 0, 255, 0.5); */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+}
+
+.additional-section {
+  margin-top: -25vh;
+  /* Adjust this value to overlap the previous section */
+  background-color: blue;
+  /* Change this to your desired color */
+  border-radius: 10% 10% 0 0;
+  padding: 0[x] 0;
+  /* Adjust padding as needed */
+  position: relative;
+  z-index: -1;
+  /* Ensure this section stays behind the red box */
+}
+
+.inner-section {
+  background-color: white;
+  /* Or any other color you prefer */
+  padding: 0px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+}
+
+.red-img1 {
+  height: 42vh;
+}
+
+/* New section with dark background */
+.dark-section {
+  background-color: #1D1D1D;
+  /* Dark color */
+  width: 100%;
+  /* 100% width of the container */
+  position: relative;
+  float: left;
+  border-radius: 2%;
+}
+
+.dark-section .inner-section {
+  background-color: #1D1D1D;
+}
+
+.dark-section .inner-section-text {
+  text-align: left;
+}
+
+/* -------------------------------- */
+/* Blog Section  */
+/* -------------------------------- */
+
+.blog {
+  background-color: white;
+  position: relative;
+  z-index: 1;
+  margin-top: 10%;
+}
+
+.blog-text {
+  padding-top: 10%;
+  padding-left: 10%;
+  margin-bottom: 5%;
+  color: #000;
+}
+
+/* Form Section  */
+.form-box {
+  background-color: #FEE6E5;
+  margin-top: 10%;
+}
+
+.box-option {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5%;
+  cursor: poPoppins;
+  transition: background-color 0.3s;
+}
+
+.box-option:hover {
+  background-color: #e9ecef;
+}
+
+.form-container {
+  border: 1px solid #FEE6E5;
+  background-color: #FEE6E5;
+
+}
+
+.form-container h4 {
+  margin-top: 0;
+  text-align: left;
+  font-weight: 600;
+}
+
+.form-text {
+  text-align: left;
+  padding-left: 8%;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+  /* Adjust spacing as needed */
+}
+
+.form-control {
+  font-family: "public-sans", sans-serif; 
+  border: none;
+  border-bottom: 1px solid black;
+  /* Horizontal line under the input */
+  border-radius: 0;
+  /* Remove border-radius */
+  background-color: transparent;
+  /* Make background transparent */
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-size: 18px;
+  /* Adjust font size as needed */
+  color: black;
+  /* Set text color */
+  line-height: 2.5;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  /* Remove focus box-shadow */
+}
+
+.form-control::placeholder {
+  color: black;
+  /* Set placeholder text color */
+}
+
+.input-form{
+  border-bottom: 1px solid rgba(128, 128, 128, 0.34);
+}
+
+/* .input-form:hover{
+  border-bottom: 1px solid #000000;
+} */
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%;
+  /* Set to 50% for a perfect circle */
+  width: 65px;
+  height: 65px;
+  background-color: #F3F3F3;
+}
+
+.text-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+}
+
+.icon {
+  font-size: 28px;
+  /* Adjust the font size as needed */
+  color: white;
+  /* Set icon color to white */
+}
+
+.form-submit-button {
+  background-color: #D61209;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+/* -------------------------------- */
+/* Earth Globe */
+/* -------------------------------- */
+
+.earth-globe-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 2.8rem;
+  text-align: left;
+  color: white;
+}
+
+.earth-globe-description {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+
+}
+
+.globe-container {
+  width: 400px;
+  /* Adjust the size as needed */
+  height: 400px;
+  /* Adjust the size as needed */
+  position: relative;
+  margin-top: -30%;
+}
+
+.globe-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.globe-cards {
+  /* margin-bottom: -12%; */
+  height: 960px;
+  background-color: #E5190B;
+  background: linear-gradient(135deg, #F51202 0%, #8F0B01 100%);
+
+}
+
+
+.div-col-span-12-wrapper,
+.section-14,
+.website-screen-9,
+.website-screen-9-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+.div-col-span-12-wrapper {
+  width: 1264px;
+  flex-direction: row;
+  padding: 0 var(--padding-13xl);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.website-screen-9-wrapper {
+  text-align: left;
+  font-size: 11.8px;
+  color: var(--gray-white);
+  font-family: var(--developer-body-regular-400);
+}
+
+.div-col-span-12 {
+  flex: 1;
+  flex-shrink: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 616px;
+  flex-shrink: 0;
+  debug_commit: 1de1738;
+  max-width: 100%;
+  gap: var(--gap-xl);
+  margin-top: 14%;
+}
+
+.div-relative {
+  width: 276px;
+  position: relative;
+  background: linear-gradient(180deg, #007dfc, #243a5a);
+}
+
+.div-relative,
+.div-relative-icon2 {
+  height: 416.4px;
+  border-radius: 18.56px;
+  mix-blend-mode: normal;
+}
+
+.div-h-full {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, #5600f1, #007dfc);
+  width: 60px;
+}
+
+.div-contain-paint,
+.div-h-full {
+  display: none;
+  mix-blend-mode: normal;
+}
+
+.div-relative-icon2 {
+  position: absolute;
+  top: -200px;
+  right: -310.1px;
+  width: 326.1px;
+  overflow: hidden;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.div-relative,
+.div-relative-icon2 {
+  height: 416.4px;
+  border-radius: 18.56px;
+  mix-blend-mode: normal;
+}
+
+.div-relative1 {
+  width: 276px;
+  position: relative;
+  background: linear-gradient(180deg, #0057ff, #ffeb72);
+}
+
+.div-relative-icon3,
+.div-relative1 {
+  height: 416.4px;
+  border-radius: 18.56px;
+  mix-blend-mode: normal;
+}
+
+.div-h-full1 {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 216px;
+  background: linear-gradient(180deg, #007dfc, #ff972e);
+  width: 60px;
+  display: none;
+  mix-blend-mode: normal;
+}
+
+.div-relative-icon3 {
+  position: absolute;
+  top: -200px;
+  left: -310.1px;
+  width: 326.1px;
+  overflow: hidden;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.div-relative-icon3,
+.div-relative1 {
+  height: 416.4px;
+  border-radius: 18.56px;
+  mix-blend-mode: normal;
+}
+
+/* -------------------------------- */
+/* Partners */
+/* -------------------------------- */
+
+.partner-heading {
+  font-family: "public-sans", sans-serif; 
+  text-align: center;
+  font-weight: 800;
+  margin-top: 20px;
+  /* Add margin for spacing */
+}
+
+.partners-container {
+  width: 100%;
+  /* Use viewport width for full browser width */
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  /* Center the background image */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 50px 20px;  */
+  margin-top: -8%;
+  padding-bottom: 35%;
+}
+
+.partner-text {
+  text-align: center;
+  max-width: 100%;
+  /* Limit width for better readability */
+}
+
+.partner-text p {
+  font-size: 16px;
+}
+
+/* -------------------------------- */
+/* Live Events & Show */
+/* -------------------------------- */
+
+.even-heading {
+  background-color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.event {
+  font-family: "JetBrains Mono", monospace;
+  /* Apply JetBrains Mono font to the entire section */
+  font-optical-sizing: auto;
+  padding-left: 22%;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #061543 0%, #122D7D 42%, #0B1F5A 73%, #12245A 100%);
+  background-color: #061540;
+  width: 100%;
+  /* height: 100vh; */
+}
+
+.divider {
+  width: 201px;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid white;
+  /* Change border color to white or any other color that contrasts well with the background */
+  box-sizing: border-box;
+  opacity: 0.6;
+  z-index: 1;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.even-box {
+  background-color: white;
+  height: auto;
+  /* margin-right: 2%; */
+  padding: 2%;
+  font-family: "JetBrains Mono", monospace;
+  /* Apply JetBrains Mono font to the paragraphs inside even boxes */
+}
+
+.even-arrow-section {
+  color: white;
+  text-align: right;
+  padding-right: 27%;
+}
+
+.even-arrow-circle {
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+}
+
+.even-arrow {
+  color: #000;
+}
+
+.even-box p {
+  color: #424E60;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* -------------------------------- */
+/* Footer  */
+/* -------------------------------- */
+
+#footer {
+  font-family: "Poppins", sans-serif;
+  padding: 10%;
+  margin-bottom: -5%;
+  background-size: 100%;
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-left {
+  text-align: left;
+  padding-right: 10%;
+}
+
+.footer-right {
+  text-align: left;
+  padding-left: 10%;
+  color: #535353;
+}
+
+.subscribe-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* Set the width to 100% */
+}
+
+.email-input {
+  flex: 2;
+  /* Take up two-thirds of the width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  padding-left: 15px;
+  font-size: 16px;
+}
+
+.subscribe-button {
+  flex: 1;
+  /* Take up one-third of the width */
+  padding: 10px 20px;
+  background-color: #D60404;
+  color: #fff;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: poPoppins;
+  font-size: 16px;
+}
+
+.footer-bottom {
+  background-color: #E5190B;
+  background: linear-gradient(135deg, #F51202 0%, #8F0B01 100%);
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+.footer-icons {
+  text-align: left;
+}
+
+.row-container {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+.circle-container {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #1E1E1E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.svg-content {
+  width: 12px;
+  height: auto;
+  fill: white;
+}
+
+.footer-menu a {
+  color: #535353;
+  /* Set text color to gray */
+  text-decoration: none;
+  /* Remove underline */
+}
+
+.footer-menu a:hover {
+  color: #E5190B;
+  /* Change text color to red on hover */
+}
+
+
+/* ======== || MOBILE SCREEN || ========== */
+
+@media (max-width: 1028px) {
+
+  #title {
+    background-repeat: repeat;
+    background-size: 100% auto;
+    background-position: 0 0, 0 100%, 0 200%;
+    color: #fff;
+    text-align: left;
+  }
+
+  .title-image {
+    position: static;
+    transform: rotate(0);
+  }
+
+  .card-text {
+    font-size: 2rem;
+  }
+
+  .small-heading {
+    padding-top: 5%;
+    padding-right: 0%;
+    padding-left: 0%;
+  }
+
+  .card1-3 {
+    padding-top: 30%;
+  }
+
+  /* .big-heading {
+    font-size: 3.8rem;
+  } */
+
+
+  /* Follow UP */
+
+  .yt-card-description {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: left;
+  }
+
+  .twitter-card {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #FFF0F0;
+    border-radius: 5%;
+    margin-right: 0%;
+  }
+
+  .linkedin-card {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #FFF0F0;
+    border-radius: 5%;
+    margin-left: 0%;
+  }
+
+  /* Red Banner  */
+  .dark-section .inner-section {
+    background-color: #1D1D1D;
+    padding-left: 25%;
+  }
+
+  .dark-section .inner-section-text {
+    padding-left: 10%;
+    text-align: justify;
+    padding-bottom: 10%;
+  }
+
+
+  /* Blog Section  */
+  .blog-text {
+    padding-top: 10%;
+    padding-left: 5%;
+    margin-bottom: 5%;
+    color: #000;
+  }
+
+  /* Earth Globe  */
+
+  .earth-globe-text {
+    font-size: 1.5rem;
+  }
+
+  .earth-globe-description {
+    font-size: 0.9rem;
+
+  }
+
+  .globe-container {
+    margin-top: 2%;
+    align-items: center;
+    align-content: center;
+    margin-left: -60%;
+    margin-bottom: 30%;
+  }
+
+  .globe-canvas {
+    align-items: center;
+    align-content: center;
+  }
+
+  .div-relative-icon3,
+  .div-relative1 {
+    margin-bottom: 100%;
+  }
+
+  .div-relative,
+  .div-relative-icon2 {
+    margin-bottom: 100%;
+  }
+
+  /* Live Events & Show */
+
+ 
+  .even-arrow-section {
+    color: white;
+    text-align: center;
+  }
+
+  .even-box {
+    background-color: white;
+    margin: 2%;
+    height: auto;
+  }
+
+  .even-box p {
+    color: #424E60;
+    text-align: left;
+    font-size: 12px;
+    margin-bottom: 2%;
+  }
+
+  /* Footer  */
+  
+  .footer-right {
+    padding-left: 4%;
+  }
+
+}
+
+
+/* For iMac */
+@media only screen and (min-width: 1441px) {
+  /* Your CSS styles for iMac screens here */
+}
+
+.mac-os #pricing {
+  padding-bottom: 7%;
+}
+
+.mac-os .pricing-column {
+  padding: 2% 0%;
+  margin-top:18%;
+}
