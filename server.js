@@ -1,10 +1,14 @@
 const express = require("express");
-const portfolioRoutes = require("./js/api/portfolio");
+const portfolioRouter = require("./js/api/portfolio");
+const newsRouter = require("./js/api/news");
 
 const app = express();
 const port = 3000;
 app.use(express.static(__dirname));
-app.use(portfolioRoutes);
+
+// Assigning API routers to the app instance
+app.use(portfolioRouter);
+app.use(newsRouter);
 
 app.get("/", function (req, res) {
   // console.log(req);

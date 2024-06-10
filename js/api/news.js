@@ -6,9 +6,9 @@ const { db, connect, disconnect } = require("../../db/db");
 
 const router = express.Router();
 
-// API endpoints for User Portfolio
-router.get("/api/startups", (req, res) => {
-  const query = "SELECT * FROM startups";
+// API endpoints for News
+router.get("/api/news", (req, res) => {
+  const query = `SELECT * FROM news`;
 
   const dbConnected = connect();
   if (dbConnected) {
@@ -16,7 +16,7 @@ router.get("/api/startups", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.json({ startups: result });
+        res.json(result);
       }
     });
     disconnect();
@@ -25,7 +25,7 @@ router.get("/api/startups", (req, res) => {
   }
 });
 
-router.post("/api/startups", (req, res) => {
+router.post("/api/news", (req, res) => {
   const form = formidable({ multiples: true });
   form.parse(req, (err, fields, files) => {
     if (Object.keys(files).length !== 0) {
@@ -48,16 +48,16 @@ router.post("/api/startups", (req, res) => {
         const dbConnected = connect();
 
         if (dbConnected) {
-          const query = `INSERT INTO startups (type, name, website, img) VALUES ('${fields.startupType[0]}', '${fields.startupName[0]}', '${fields.websiteUrl[0]}', '${newFilename}')`;
+          const query = `INSERT INTO news (headline, description, url, img) VALUES ('${fields.headline[0]}', '${fields.description[0]}', '${fields.url[0]}', '${newFilename}')`;
           db.query(query, (err, result) => {
             if (err) {
               console.log(err);
-              res.status(500).send("Error creating startup");
+              res.status(500).send("Error creating news");
               disconnect();
               return;
             }
 
-            res.status(201).send(`Startup added with ID: ${result.insertId}`);
+            res.status(201).send(`News added with ID: ${result.insertId}`);
             disconnect();
           });
         } else {
@@ -68,16 +68,16 @@ router.post("/api/startups", (req, res) => {
       const dbConnected = connect();
 
       if (dbConnected) {
-        const query = `INSERT INTO startups (type, name, website) VALUES ('${fields.startupType[0]}', '${fields.startupName[0]}', '${fields.websiteUrl[0]}')`;
+        const query = `INSERT INTO news (headline, description, url) VALUES ('${fields.headline[0]}', '${fields.description[0]}', '${fields.url[0]}')`;
         db.query(query, (err, result) => {
           if (err) {
             console.log(err);
-            res.status(500).send("Error creating startup");
+            res.status(500).send("Error creating news");
             disconnect();
             return;
           }
 
-          res.status(201).send(`Startup added with ID: ${result.insertId}`);
+          res.status(201).send(`News added with ID: ${result.insertId}`);
           disconnect();
         });
       } else {
@@ -87,7 +87,7 @@ router.post("/api/startups", (req, res) => {
   });
 });
 
-router.put("/api/startups", (req, res) => {
+router.put("/api/news", (req, res) => {
   const { id } = req.query;
 
   const form = formidable({ multiples: true });
@@ -114,16 +114,16 @@ router.put("/api/startups", (req, res) => {
         const dbConnected = connect();
 
         if (dbConnected) {
-          const query = `UPDATE startups SET type='${fields.startupType[0]}' name='${fields.startupName[0]}' website='${fields.websiteUrl[0]}' img='${newFilename}' WHERE id=${id})`;
+          const query = `UPDATE news SET headline='${fields.headline[0]}' description='${fields.description[0]}' url='${fields.url[0]}' img='${newFilename}' WHERE id=${id})`;
           db.query(query, (err, result) => {
             if (err) {
               console.log(err);
-              res.status(500).send("Error updating startup");
+              res.status(500).send("Error updating news");
               disconnect();
               return;
             }
 
-            res.send(`Startup updated with ID: ${result.insertId}`);
+            res.send(`News updated with ID: ${result.insertId}`);
             disconnect();
           });
         } else {
@@ -134,16 +134,16 @@ router.put("/api/startups", (req, res) => {
       const dbConnected = connect();
 
       if (dbConnected) {
-        const query = `UPDATE startups SET type='${fields.startupType[0]}' name='${fields.startupName[0]}' website='${fields.websiteUrl[0]}' WHERE id=${id})`;
+        const query = `UPDATE news SET headline='${fields.headline[0]}' description='${fields.description[0]}' url='${fields.url[0]}' WHERE id=${id})`;
         db.query(query, (err, result) => {
           if (err) {
             console.log(err);
-            res.status(500).send("Error updating startup");
+            res.status(500).send("Error updating news");
             disconnect();
             return;
           }
 
-          res.send(`Startup updated with ID: ${result.insertId}`);
+          res.send(`News updated with ID: ${result.insertId}`);
           disconnect();
         });
       } else {
@@ -153,17 +153,17 @@ router.put("/api/startups", (req, res) => {
   });
 });
 
-router.delete("/api/startups", (req, res) => {
+router.delete("/api/news", (req, res) => {
   const { id } = req.query;
 
   const dbConnected = connect();
 
   if (dbConnected) {
-    const query = `DELETE FROM startups WHERE id=${id}`;
+    const query = `DELETE FROM news WHERE id=${id}`;
     db.query(query, (err, result) => {
       if (err) {
         console.log(err);
-        res.status(500).send("Error deleting startup");
+        res.status(500).send("Error deleting news");
         disconnect();
         return;
       }
