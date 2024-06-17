@@ -10,6 +10,261 @@
   <link rel="stylesheet" href="./assets/css/index.css" />
   <script src="https://kit.fontawesome.com/3c52d6d952.js" crossorigin="anonymous"></script>
 
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', async () => {
+      const apiUrl = '/api/news';
+      const loadingIndicator = document.getElementById('loading-indicator');
+
+      // Functions to show and hide the loading indicator
+      const showLoadingIndicator = () => {
+        loadingIndicator.style.display = 'block';
+      }
+      const hideLoadingIndicator = () => {
+        loadingIndicator.style.display = 'none';
+      }
+
+      // Function to fetch data from the API
+      const fetchData = async () => {
+        try {
+          showLoadingIndicator();
+          const response = await fetch(apiUrl);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          populateTable(data);
+        } catch (error) {
+          console.error('There was a problem with the fetch operation:', error);
+        } finally {
+          hideLoadingIndicator();
+        }
+      }
+
+      // Function to populate the table with data
+      const populateTable = (data) => {
+        const tableBody = document.getElementById('table-body');
+        tableBody.innerHTML = ''; // Clear any existing rows
+
+        data.forEach(item => {
+          const row = document.createElement('tr');
+
+          const idCell = document.createElement('td')
+          idCell.textContent = item.id
+
+          const headlineCell = document.createElement('td');
+          headlineCell.textContent = item.headline;
+
+          const descriptionCell = document.createElement('td');
+          descriptionCell.textContent = item.description;
+
+          const urlCell = document.createElement('td');
+          urlCell.classList.add('table-url');
+          urlCell.textContent = item.url;
+
+          const actionCell = document.createElement('td');
+          actionCell.classList.add('text-right');
+          const editLink = document.createElement('a');
+          // editLink.href = ''; // Add the URL for the edit action
+          editLink.onclick = (e) => {
+            const editNewsContainer = document.getElementById("edit-news-container")
+            const editNewsId = document.getElementById("edit-news-id")
+            const editHeadline = document.getElementById("edit-headline")
+            const editDescription = document.getElementById("edit-description")
+            const editUrl = document.getElementById("edit-url")
+
+            editNewsId.textContent = item.id
+            editHeadline.value = item.headline
+            editDescription.value = item.description
+            editUrl.value = item.url
+
+            editNewsContainer.style.display = 'block'
+          }
+          const editIcon = document.createElement('i');
+          editIcon.classList.add('fas', 'fa-edit');
+          editLink.appendChild(editIcon);
+          actionCell.appendChild(editLink);
+
+          const deleteCell = document.createElement('td')
+          const deleteLink = document.createElement('a')
+          deleteLink.textContent = "Delete"
+          deleteLink.style.color = "red"
+          deleteLink.onclick = (e) => {
+            fetch('/api/news?' + new URLSearchParams({ id: item.id }), {
+              method: 'DELETE',
+            })
+            .then(response => {
+              if (response.status === 204) {
+                window.location.reload()
+              }
+            })
+            .catch(error => {
+              // Handle any errors
+              console.error('Error:', error);
+            });
+          }
+          deleteCell.appendChild(deleteLink)
+          
+          row.appendChild(idCell)
+          row.appendChild(headlineCell);
+          row.appendChild(descriptionCell);
+          row.appendChild(urlCell);
+          row.appendChild(actionCell);
+          row.appendChild(deleteCell)
+
+          tableBody.appendChild(row);
+        });
+      }
+
+      // Fetch data and populate the table on page load
+      await fetchData();
+  });
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const fileInput = document.getElementById('add-news-file-upload');
+      const imgPreview = document.getElementById('add-news-image');
+      const addStartupSubmitButton = document.getElementById('add-news-submit');
+      const cancelButton = document.getElementById('add-news-cancel-button');
+
+      const addNewButton = document.getElementById('addNewButton');
+      const addNewStartupContainer = document.getElementById('add-news-container');
+      addNewStartupContainer.style.display = 'none'
+
+      // Display the addNewStartupContainer when the addNewButton is clicked
+      addNewButton.addEventListener('click', function() {
+        addNewStartupContainer.style.display = 'block';
+      });
+
+      // Handle cancel button click    
+      cancelButton.addEventListener('click', function() {
+        form.reset();
+        imgPreview.src = './assets/images/upload-image-template.jpg';
+        addNewStartupContainer.style.display = 'none'
+      });
+
+      let image;
+
+      // Display the selected image in the img element
+      fileInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function() {
+            image = reader.result;
+            imgPreview.src = reader.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Handle form submission
+      addStartupSubmitButton.addEventListener('click', function(event) {
+        const headline = document.getElementById('add-news-headline').value;
+        const description = document.getElementById('add-news-description').value;
+        const url = document.getElementById('add-news-url').value;
+        // const file = fileInput.files[0];
+
+        // console.log(fileInput);
+
+        // const formData = new FormData();
+        // formData.append('startupType', startupType);
+        // formData.append('startupName', startupName);
+        // formData.append('websiteURL', websiteURL);
+        // if (file) {
+        //   formData.append('file', image);
+        // }
+
+        fetch('/api/news', {
+          method: 'POST',
+          body: JSON.stringify({headline, description, url}),
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data
+          console.log('Success:', data);
+          window.location.reload()
+        })
+        .catch(error => {
+          // Handle any errors
+          console.error('Error:', error);
+        });
+      });
+    })
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const editStartupContainer = document.getElementById("edit-news-container")
+      editStartupContainer.style.display = 'none'
+
+      const fileInput = document.getElementById('edit-news-file-upload');
+      const imgPreview = document.getElementById('edit-news-uploaded-image');
+      const submitButton = document.getElementById('edit-news-submit');
+      const cancelButton = document.getElementById('edit-news-cancel');
+
+      // Display the selected image in the img element
+      fileInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            imgPreview.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Handle form submission
+      submitButton.addEventListener('click', function(event) {
+        const newsId = document.getElementById('edit-news-id').textContent
+        const headline = document.getElementById('edit-headline').value;
+        const description = document.getElementById('edit-description').value;
+        const url = document.getElementById('edit-url').value;
+        // const file = fileInput.files[0];
+
+        // const formData = new FormData();
+        // formData.append('startupType', startupType);
+        // formData.append('startupName', startupName);
+        // formData.append('websiteURL', websiteURL);
+        // if (file) {
+        //   formData.append('file', file);
+        // }
+      
+        fetch('/api/news?' + new URLSearchParams({ id: newsId }), {
+          method: 'PUT',
+          body: JSON.stringify({headline, description, url}),
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data
+          console.log('Success:', data);
+          window.location.reload()
+        })
+        .catch(error => {
+          // Handle any errors
+          console.error('Error:', error);
+        });
+      });
+
+      // Handle cancel button click
+      cancelButton.addEventListener('click', function() {
+        window.location.reload()
+      });
+    });
+  </script>
+
+  <style>
+    .loading-indicator {
+      display: none;
+      text-align: center;
+      font-size: 1.5em;
+    }
+  </style>
 </head>
 
 <body>
@@ -143,43 +398,89 @@
 
       <div class="container-fluid">
         <!-- Row 1 -->
-        <div class="row" id="uploadSaveSection" style="display: none;">
+        <div class="row" id="add-news-container">
           <div class="col-md-12">
             <div class="card">
+              <h4 style="margin-top: 10px; margin-left: 10px;">Add News</h4>
               <div class="card-body" style="display: flex; align-items: center;">
                 <div style="flex: 1;">
-                  <img id="uploaded-image" src="./assets/images/products/s4.jpg" class="card-img-top"
+                  <img id="add-news-image" src="./assets/images/upload-image-template.jpg" class="card-img-top"
                     alt="Uploaded Image" style="width: 100%; height: 290px; padding-bottom: 3%;">
                   <div style="text-align: center;">
-                    <form id="upload-form" enctype="multipart/form-data">
-                      <label for="file-upload" class="btn btn-primary btn-border"
-                        style="border-radius: 50px; padding: 10px 20px;">Upload Logo</label>
-                      <input id="file-upload" name="file-upload" type="file" style="display: none;">
+                    <form id="add-news-form" enctype="multipart/form-data">
+                      <label for="add-news-file-upload" class="btn btn-primary btn-border"
+                        style="border-radius: 50px; padding: 10px 20px;">Upload Media</label>
+                      <input id="add-news-file-upload" name="add-news-file-upload" type="file" style="display: none;">
                     </form>
                   </div>
                 </div>
-                <div style="flex: 3;">
+                <div style="flex: 2;">
                   <div class="overflow-hidden">
                     <div class="card-body p-4">
-                      <form id="data-form">
+                      <!-- <form id="add-startup-data-form"> -->
                         <div class="mb-3">
-                          <label for="startupType" class="form-label">News Headline</label>
-                          <input type="text" class="form-control" id="startupType" aria-describedby="emailHelp">
+                          <label for="headline" class="form-label">Headline</label>
+                          <input type="text" class="form-control" id="add-news-headline" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                          <label for="startupName" class="form-label">Short Description </label>
-                          <input type="text" class="form-control" id="startupName">
+                          <label for="description" class="form-label">Description</label>
+                          <input type="text" class="form-control" id="add-news-description">
                         </div>
                         <div class="mb-3">
-                          <label for="websiteURL" class="form-label">News URL</label>
-                          <input type="text" class="form-control" id="websiteURL">
+                          <label for="url" class="form-label">URL</label>
+                          <input type="text" class="form-control" id="add-news-url">
                         </div>
                         <div class="d-flex justify-content-end">
-                          <button type="submit" class="btn me-2">Cancel</button>
-                          <button type="submit" class="btn"
+                          <button class="btn me-2" id="add-news-cancel-button">Cancel</button>
+                          <button id="add-news-submit" class="btn"
                             style="border-radius: 50px; padding: 10px 20px; background-color: #514EF3; color: white;">Save</button>
                         </div>
-                      </form>
+                      <!-- </form> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="edit-news-container">
+          <div class="col-md-12">
+            <div class="card">
+              <h4 style="margin-top: 10px; margin-left: 10px;">Edit News</h4>
+              <div class="card-body" style="display: flex; align-items: center;">
+                <div style="flex: 1;">
+                  <img id="edit-news-uploaded-image" src="./assets/images/upload-image-template.jpg" class="card-img-top"
+                    alt="Uploaded Image" style="width: 100%; height: 290px; padding-bottom: 3%;">
+                  <div style="text-align: center;">
+                    <form id="edit-news-upload-form" enctype="multipart/form-data">
+                      <label for="edit-news-file-upload" class="btn btn-primary btn-border"
+                        style="border-radius: 50px; padding: 10px 20px;">Upload Media</label>
+                      <input id="edit-news-file-upload" name="edit-news-file-upload" type="file" style="display: none;">
+                    </form>
+                  </div>
+                </div>
+                <div style="flex: 2;">
+                  <div class="overflow-hidden">
+                    <div class="card-body p-4">
+                        <p id="edit-news-id" style="display: none;"></p>
+                        <div class="mb-3">
+                          <label for="edit-headline" class="form-label">Headline</label>
+                          <input type="text" class="form-control" id="edit-headline" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                          <label for="edit-description" class="form-label">Description</label>
+                          <input type="text" class="form-control" id="edit-description">
+                        </div>
+                        <div class="mb-3">
+                          <label for="edit-url" class="form-label">URL</label>
+                          <input type="text" class="form-control" id="edit-url">
+                        </div>
+                        <div class="d-flex justify-content-end">
+                          <button id="edit-news-cancel" class="btn me-2">Cancel</button>
+                          <button id="edit-news-submit" class="btn"
+                            style="border-radius: 50px; padding: 10px 20px; background-color: #514EF3; color: white;">Save</button>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -202,19 +503,21 @@
                   <input type="text" class="form-control with-icon" placeholder="Search by name or startup type..."
                     aria-label="Search" aria-describedby="search-button">
                 </div>
+                <div class="loading-indicator mb-3" id="loading-indicator">Loading...</div>
                 <div class="table-responsive">
                   <table class="table">
                     <thead style="background-color: #F9FAFB;">
                       <tr>
-                        <th>HEADLINE</th>
-                        <th>DESCRIPTION</th>
+                        <th>ID</th>
+                        <th>Headline</th>
+                        <th>Description</th>
                         <th>URL</th>
-                        <th>Icon</th>
-                        <th>Action</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                       </tr>
                     </thead>
                     <tbody id="table-body">
-                      <tr>
+                      <!-- <tr>
                         <td>TOI</td>
                         <td>lorem Epsum........</td>
                         <td class="table-url">abc.com</td>
@@ -241,7 +544,7 @@
                         <td class="table-url">tuv.com</td>
                         <td class="table-url">tuv.com</td>
                         <td class="text-right"><a href=""><i class="fas fa-edit"></i></a></td>
-                      </tr>
+                      </tr> -->
                     </tbody>
                   </table>
                 </div>

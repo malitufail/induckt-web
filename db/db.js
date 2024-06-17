@@ -1,9 +1,14 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 
-const host = "bscvmt8i12ludoap3nyr-mysql.services.clever-cloud.com";
-const user = "upxdtbft2x2o4qxg";
-const password = "vpdBQzMl3Cf3hyk8kKxP";
-const database = "bscvmt8i12ludoap3nyr";
+// const host = "bscvmt8i12ludoap3nyr-mysql.services.clever-cloud.com";
+// const user = "upxdtbft2x2o4qxg";
+// const password = "vpdBQzMl3Cf3hyk8kKxP";
+// const database = "bscvmt8i12ludoap3nyr";
+
+const host = "localhost";
+const user = "root";
+const password = "Welcome@2000";
+const database = "wormos";
 
 const db = mysql.createConnection({
   host,

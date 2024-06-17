@@ -9,7 +9,263 @@
   <link rel="stylesheet" href="./assets/css/styles.min.css" />
   <link rel="stylesheet" href="./assets/css/index.css" />
   <script src="https://kit.fontawesome.com/3c52d6d952.js" crossorigin="anonymous"></script>
-  
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', async () => {
+      const apiUrl = '/api/startups'; // Replace with your actual API URL
+      const loadingIndicator = document.getElementById('loading-indicator');
+
+      // Functions to show and hide the loading indicator
+      const showLoadingIndicator = () => {
+        loadingIndicator.style.display = 'block';
+      }
+      const hideLoadingIndicator = () => {
+        loadingIndicator.style.display = 'none';
+      }
+
+      // Function to populate the table with data
+      const populateTable = (data) => {
+        const tableBody = document.getElementById('table-body');
+        tableBody.innerHTML = ''; // Clear any existing rows
+
+        data.forEach(item => {
+          const row = document.createElement('tr');
+
+          const idCell = document.createElement('td');
+          idCell.textContent = item.id
+
+          const startupTypeCell = document.createElement('td');
+          startupTypeCell.textContent = item.type;
+
+          const startupNameCell = document.createElement('td');
+          startupNameCell.textContent = item.name;
+
+          const urlCell = document.createElement('td');
+          urlCell.classList.add('table-url');
+          urlCell.textContent = item.website;
+
+          const actionCell = document.createElement('td');
+          actionCell.classList.add('text-right');
+          const editLink = document.createElement('a');
+          // editLink.href = ''; // Add the URL for the edit action
+          editLink.onclick = (e) => {
+            const editStartupContainer = document.getElementById("edit-startup-container")
+            const editStartupId = document.getElementById("edit-startup-id")
+            const editStartupType = document.getElementById("edit-startupType")
+            const editStartupName = document.getElementById("edit-startupName")
+            const editWebsiteURL = document.getElementById("edit-websiteURL")
+
+            editStartupId.textContent = item.id
+            editStartupType.value = item.type
+            editStartupName.value = item.name
+            editWebsiteURL.value = item.website
+
+            editStartupContainer.style.display = 'block'
+          }
+          const editIcon = document.createElement('i');
+          editIcon.classList.add('fas', 'fa-edit');
+          editLink.appendChild(editIcon);
+          actionCell.appendChild(editLink);
+
+          const deleteCell = document.createElement('td')
+          const deleteLink = document.createElement('a')
+          deleteLink.textContent = "Delete"
+          deleteLink.style.color = "red"
+          deleteLink.onclick = () => {
+            fetch('/api/startups?' + new URLSearchParams({ id: item.id }), {
+              method: 'DELETE',
+            })
+            .then(response => {
+              if (response.status === 204) {
+                window.location.reload()
+              }
+            })
+            .catch(error => {
+              // Handle any errors
+              console.error('Error:', error);
+            });
+          }
+
+          deleteCell.appendChild(deleteLink)
+
+          row.appendChild(idCell)
+          row.appendChild(startupTypeCell);
+          row.appendChild(startupNameCell);
+          row.appendChild(urlCell);
+          row.appendChild(actionCell);
+          row.appendChild(deleteCell)
+
+          tableBody.appendChild(row);
+        });
+      }
+
+      // Function to fetch data from the API
+      const fetchData = async () => {
+        try {
+          showLoadingIndicator();
+          const response = await fetch(apiUrl);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          populateTable(data.startups);
+        } catch (error) {
+          console.error('There was a problem with the fetch operation:', error);
+        } finally {
+          hideLoadingIndicator();
+        }
+      }
+
+      // Fetch data and populate the table on page load
+      await fetchData();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const fileInput = document.getElementById('add-startup-file-upload');
+      const imgPreview = document.getElementById('add-startup-image');
+      const addStartupSubmitButton = document.getElementById('add-startup-submit');
+      const cancelButton = document.getElementById('add-startup-cancel-button');
+
+      const addNewButton = document.getElementById('addNewButton');
+      const addNewStartupContainer = document.getElementById('add-new-startup-container');
+      addNewStartupContainer.style.display = 'none'
+
+      // Display the addNewStartupContainer when the addNewButton is clicked
+      addNewButton.addEventListener('click', function() {
+        addNewStartupContainer.style.display = 'block';
+      });
+
+      // Handle cancel button click    
+      cancelButton.addEventListener('click', function() {
+        form.reset();
+        imgPreview.src = './assets/images/upload-image-template.jpg';
+        addNewStartupContainer.style.display = 'none'
+      });
+
+      let image;
+
+      // Display the selected image in the img element
+      fileInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function() {
+            image = reader.result;
+            imgPreview.src = reader.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Handle form submission
+      addStartupSubmitButton.addEventListener('click', function(event) {
+        const startupType = document.getElementById('add-startup-startupType').value;
+        const startupName = document.getElementById('add-startup-startupName').value;
+        const websiteURL = document.getElementById('add-startup-websiteURL').value;
+        // const file = fileInput.files[0];
+
+        // console.log(fileInput);
+
+        // const formData = new FormData();
+        // formData.append('startupType', startupType);
+        // formData.append('startupName', startupName);
+        // formData.append('websiteURL', websiteURL);
+        // if (file) {
+        //   formData.append('file', image);
+        // }
+
+        fetch('/api/startups', {
+          method: 'POST',
+          body: JSON.stringify({startupName, startupType, websiteURL}),
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data
+          console.log('Success:', data);
+          window.location.reload()
+        })
+        .catch(error => {
+          // Handle any errors
+          console.error('Error:', error);
+        });
+      });
+    })
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const editStartupContainer = document.getElementById("edit-startup-container")
+      editStartupContainer.style.display = 'none'
+
+      const fileInput = document.getElementById('edit-startup-file-upload');
+      const imgPreview = document.getElementById('edit-startup-uploaded-image');
+      const submitButton = document.getElementById('edit-startup-submit');
+      const cancelButton = document.getElementById('edit-startup-cancel');
+
+      // Display the selected image in the img element
+      fileInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            imgPreview.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Handle form submission
+      submitButton.addEventListener('click', function(event) {
+        const startupId = document.getElementById('edit-startup-id').textContent
+        const startupType = document.getElementById('edit-startupType').value;
+        const startupName = document.getElementById('edit-startupName').value;
+        const websiteURL = document.getElementById('edit-websiteURL').value;
+        // const file = fileInput.files[0];
+
+        // const formData = new FormData();
+        // formData.append('startupType', startupType);
+        // formData.append('startupName', startupName);
+        // formData.append('websiteURL', websiteURL);
+        // if (file) {
+        //   formData.append('file', file);
+        // }
+        console.log(startupType, startupName, websiteURL, startupId)
+        fetch('/api/startups?' + new URLSearchParams({ id: startupId }), {
+          method: 'PUT',
+          body: JSON.stringify({startupName, startupType, websiteURL}),
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data
+          console.log('Success:', data);
+          window.location.reload()
+        })
+        .catch(error => {
+          // Handle any errors
+          console.error('Error:', error);
+        });
+      });
+
+      // Handle cancel button click
+      cancelButton.addEventListener('click', function() {
+        window.location.reload()
+      });
+    });
+
+  </script>
+
+  <style>
+    .loading-indicator {
+      display: none;
+      text-align: center;
+      font-size: 1.5em;
+    }
+  </style>
 </head>
 
 <body>
@@ -145,43 +401,89 @@
 
       <div class="container-fluid">
         <!-- Row 1 -->
-        <div class="row" id="uploadSaveSection" style="display: none;">
+        <div class="row" id="add-new-startup-container">
           <div class="col-md-12">
             <div class="card">
+              <h4 style="margin-top: 10px; margin-left: 10px;">Add New Startup</h4>
               <div class="card-body" style="display: flex; align-items: center;">
                 <div style="flex: 1;">
-                  <img id="uploaded-image" src="./assets/images/products/s4.jpg" class="card-img-top"
+                  <img id="add-startup-image" src="./assets/images/upload-image-template.jpg" class="card-img-top"
                     alt="Uploaded Image" style="width: 100%; height: 290px; padding-bottom: 3%;">
                   <div style="text-align: center;">
-                    <form id="upload-form" enctype="multipart/form-data">
-                      <label for="file-upload" class="btn btn-primary btn-border"
+                    <form id="add-startup-form" enctype="multipart/form-data">
+                      <label for="add-startup-file-upload" class="btn btn-primary btn-border"
                         style="border-radius: 50px; padding: 10px 20px;">Upload Media</label>
-                      <input id="file-upload" name="file-upload" type="file" style="display: none;">
+                      <input id="add-startup-file-upload" name="add-startup-file-upload" type="file" style="display: none;">
                     </form>
                   </div>
                 </div>
                 <div style="flex: 2;">
                   <div class="overflow-hidden">
                     <div class="card-body p-4">
-                      <form id="data-form">
+                      <!-- <form id="add-startup-data-form"> -->
                         <div class="mb-3">
                           <label for="startupType" class="form-label">Startup Type</label>
-                          <input type="text" class="form-control" id="startupType" aria-describedby="emailHelp">
+                          <input type="text" class="form-control" id="add-startup-startupType" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                           <label for="startupName" class="form-label">Startup Name</label>
-                          <input type="text" class="form-control" id="startupName">
+                          <input type="text" class="form-control" id="add-startup-startupName">
                         </div>
                         <div class="mb-3">
                           <label for="websiteURL" class="form-label">Website URL</label>
-                          <input type="text" class="form-control" id="websiteURL">
+                          <input type="text" class="form-control" id="add-startup-websiteURL">
                         </div>
                         <div class="d-flex justify-content-end">
-                          <button type="submit" class="btn me-2">Cancel</button>
-                          <button type="submit" class="btn"
+                          <button class="btn me-2" id="add-startup-cancel-button">Cancel</button>
+                          <button id="add-startup-submit" class="btn"
                             style="border-radius: 50px; padding: 10px 20px; background-color: #514EF3; color: white;">Save</button>
                         </div>
-                      </form>
+                      <!-- </form> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="edit-startup-container">
+          <div class="col-md-12">
+            <div class="card">
+              <h4 style="margin-top: 10px; margin-left: 10px;">Edit Startup</h4>
+              <div class="card-body" style="display: flex; align-items: center;">
+                <div style="flex: 1;">
+                  <img id="edit-startup-uploaded-image" src="./assets/images/upload-image-template.jpg" class="card-img-top"
+                    alt="Uploaded Image" style="width: 100%; height: 290px; padding-bottom: 3%;">
+                  <div style="text-align: center;">
+                    <form id="edit-startup-upload-form" enctype="multipart/form-data">
+                      <label for="edit-startup-file-upload" class="btn btn-primary btn-border"
+                        style="border-radius: 50px; padding: 10px 20px;">Upload Media</label>
+                      <input id="edit-startup-file-upload" name="edit-startup-file-upload" type="file" style="display: none;">
+                    </form>
+                  </div>
+                </div>
+                <div style="flex: 2;">
+                  <div class="overflow-hidden">
+                    <div class="card-body p-4">
+                        <p id="edit-startup-id" style="display: none;"></p>
+                        <div class="mb-3">
+                          <label for="startupType" class="form-label">Startup Type</label>
+                          <input type="text" class="form-control" id="edit-startupType" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                          <label for="startupName" class="form-label">Startup Name</label>
+                          <input type="text" class="form-control" id="edit-startupName">
+                        </div>
+                        <div class="mb-3">
+                          <label for="websiteURL" class="form-label">Website URL</label>
+                          <input type="text" class="form-control" id="edit-websiteURL">
+                        </div>
+                        <div class="d-flex justify-content-end">
+                          <button id="edit-startup-cancel" class="btn me-2">Cancel</button>
+                          <button id="edit-startup-submit" class="btn"
+                            style="border-radius: 50px; padding: 10px 20px; background-color: #514EF3; color: white;">Save</button>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -204,18 +506,21 @@
                   <input type="text" class="form-control with-icon" placeholder="Search by name or startup type..."
                     aria-label="Search" aria-describedby="search-button">
                 </div>
+                <div class="loading-indicator mb-3" id="loading-indicator">Loading...</div>
                 <div class="table-responsive">
                   <table class="table">
                     <thead style="background-color: #F9FAFB;">
                       <tr>
+                        <th>ID</th>
                         <th>Startup Type</th>
                         <th>Startup Name</th>
                         <th>URL</th>
-                        <th>Action</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                       </tr>
                     </thead>
                     <tbody id="table-body">
-                      <tr>
+                      <!-- <tr>
                         <td>Tech Startup</td>
                         <td>ABC Private Limited</td>
                         <td class="table-url">abc.com</td>
@@ -238,8 +543,7 @@
                         <td>TUV Private LImited</td>
                         <td class="table-url">tuv.com</td>
                         <td class="text-right"><a href=""><i class="fas fa-edit"></i></a></td>
-                      </tr>
-
+                      </tr> -->
                     </tbody>
                   </table>
                 </div>
@@ -252,10 +556,7 @@
             </div>
           </div>
         </div>
-
       </div>
-
-      
     </div>
   </div>
 </div>
@@ -263,7 +564,7 @@
 
   <!-- Upload Image Script  -->
 
-  <script>
+  <!-- <script>
     document.getElementById('file-upload').addEventListener('change', function (event) {
       var uploadedImage = document.getElementById('uploaded-image');
       var file = event.target.files[0];
@@ -275,11 +576,11 @@
 
       reader.readAsDataURL(file);
     });
-  </script>
+  </script> -->
 
 
   <!-- Submit Upload Image and Startup Form together  -->
-  <script>
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
       const saveButton = document.querySelector('#data-form button[type="submit"]');
       const cancelButton = document.querySelector('#data-form button[type="reset"]');
@@ -302,7 +603,7 @@
         dataForm.reset();
       });
     });
-  </script>
+  </script> -->
 
   <!-- Search Button  -->
   <script>
@@ -325,7 +626,7 @@
   </script>
 
   <!-- Edit Button  -->
-  <script>
+  <!-- <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Function to populate the form with empty values
       function populateFormWithEmptyValues() {
@@ -423,7 +724,7 @@
         toggleUploadSaveSection();
       });
     });
-  </script>
+  </script> -->
 
   <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
