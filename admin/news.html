@@ -65,17 +65,35 @@
           actionCell.classList.add('text-right');
           const editLink = document.createElement('a');
           // editLink.href = ''; // Add the URL for the edit action
-          editLink.onclick = (e) => {
+          editLink.onclick = async (e) => {
             const editNewsContainer = document.getElementById("edit-news-container")
             const editNewsId = document.getElementById("edit-news-id")
             const editHeadline = document.getElementById("edit-headline")
             const editDescription = document.getElementById("edit-description")
             const editUrl = document.getElementById("edit-url")
+            const editImage = document.getElementById("edit-news-uploaded-image")
 
             editNewsId.textContent = item.id
             editHeadline.value = item.headline
             editDescription.value = item.description
             editUrl.value = item.url
+            if (item.img !== null) {
+              try {
+                const imgResponse = await fetch("/api/news/image?" + new URLSearchParams({id:item.id}))
+
+                if (imgResponse.ok) {
+                  const blob = await imgResponse.blob()
+                  const url = URL.createObjectURL(blob)
+                  editImage.removeAttribute("src")
+                  editImage.setAttribute("src", url)
+                } else {
+                  const error = await imgResponse.text();
+                  console.log(error)
+                }
+              } catch (e) {
+                console.log(e)
+              }
+            }
 
             editNewsContainer.style.display = 'block'
           }
@@ -141,15 +159,15 @@
         addNewStartupContainer.style.display = 'none'
       });
 
-      let image;
+      let file;
 
       // Display the selected image in the img element
       fileInput.addEventListener('change', function(event) {
-        const file = event.target.files[0];
+        file = event.target.files[0];
         if (file) {
           const reader = new FileReader();
           reader.onload = function() {
-            image = reader.result;
+            // image = reader.result;
             imgPreview.src = reader.result;
           };
           reader.readAsDataURL(file);
@@ -185,7 +203,14 @@
         .then(data => {
           // Handle the response data
           console.log('Success:', data);
-          window.location.reload()
+          // window.location.reload()
+          const formData = new FormData();
+          formData.append('image', file)
+
+          fetch("/api/news/upload-image?" + new URLSearchParams({id: data.id}), {
+            method: 'PUT',
+            body: formData,
+          }).then(res => window.location.reload())
         })
         .catch(error => {
           // Handle any errors
@@ -204,8 +229,9 @@
       const cancelButton = document.getElementById('edit-news-cancel');
 
       // Display the selected image in the img element
+      let file;
       fileInput.addEventListener('change', function(event) {
-        const file = event.target.files[0];
+        file = event.target.files[0];
         if (file) {
           const reader = new FileReader();
           reader.onload = function(e) {
@@ -243,7 +269,15 @@
         .then(data => {
           // Handle the response data
           console.log('Success:', data);
-          window.location.reload()
+          // window.location.reload()
+
+          const formData = new FormData();
+          formData.append('image', file)
+
+          fetch("/api/news/upload-image?" + new URLSearchParams({id: data.id}), {
+            method: 'PUT',
+            body: formData,
+          }).then(res => {window.location.reload()})
         })
         .catch(error => {
           // Handle any errors

@@ -47,17 +47,35 @@
           actionCell.classList.add('text-right');
           const editLink = document.createElement('a');
           // editLink.href = ''; // Add the URL for the edit action
-          editLink.onclick = (e) => {
+          editLink.onclick = async (e) => {
             const editStartupContainer = document.getElementById("edit-startup-container")
             const editStartupId = document.getElementById("edit-startup-id")
             const editStartupType = document.getElementById("edit-startupType")
             const editStartupName = document.getElementById("edit-startupName")
             const editWebsiteURL = document.getElementById("edit-websiteURL")
+            const editStartupImage = document.getElementById("edit-startup-uploaded-image")
 
             editStartupId.textContent = item.id
             editStartupType.value = item.type
             editStartupName.value = item.name
             editWebsiteURL.value = item.website
+            if (item.img !== null) {
+              try {
+                const imgResponse = await fetch("/api/startups/image?" + new URLSearchParams({id:item.id}))
+
+                if (imgResponse.ok) {
+                  const blob = await imgResponse.blob()
+                  const url = URL.createObjectURL(blob)
+                  editStartupImage.removeAttribute("src")
+                  editStartupImage.setAttribute("src", url)
+                } else {
+                  const error = await imgResponse.text();
+                  console.log(error)
+                }
+              } catch (e) {
+                console.log(e)
+              }
+            }
 
             editStartupContainer.style.display = 'block'
           }
@@ -141,15 +159,14 @@
         addNewStartupContainer.style.display = 'none'
       });
 
-      let image;
+      let file;
 
       // Display the selected image in the img element
       fileInput.addEventListener('change', function(event) {
-        const file = event.target.files[0];
+        file = event.target.files[0];
         if (file) {
           const reader = new FileReader();
           reader.onload = function() {
-            image = reader.result;
             imgPreview.src = reader.result;
           };
           reader.readAsDataURL(file);
@@ -181,11 +198,18 @@
             'Content-Type': 'application/json'
           },
         })
-        .then(response => response.json())
+        .then(res => res.json())
         .then(data => {
           // Handle the response data
           console.log('Success:', data);
-          window.location.reload()
+          // window.location.reload()
+          const formData = new FormData();
+          formData.append('image', file)
+
+          fetch("/api/startups/upload-image?" + new URLSearchParams({id: data.id}), {
+            method: 'PUT',
+            body: formData,
+          }).then(res => window.location.reload())
         })
         .catch(error => {
           // Handle any errors
@@ -204,8 +228,9 @@
       const cancelButton = document.getElementById('edit-startup-cancel');
 
       // Display the selected image in the img element
+      let file;
       fileInput.addEventListener('change', function(event) {
-        const file = event.target.files[0];
+        file = event.target.files[0];
         if (file) {
           const reader = new FileReader();
           reader.onload = function(e) {
@@ -243,7 +268,15 @@
         .then(data => {
           // Handle the response data
           console.log('Success:', data);
-          window.location.reload()
+          // window.location.reload()
+
+          const formData = new FormData();
+          formData.append('image', file)
+
+          fetch("/api/startups/upload-image?" + new URLSearchParams({id: data.id}), {
+            method: 'PUT',
+            body: formData,
+          }).then(res => {window.location.reload()})
         })
         .catch(error => {
           // Handle any errors

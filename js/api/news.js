@@ -1,10 +1,24 @@
 const express = require("express");
 const path = require("path");
-const { formidable } = require("formidable");
-const fs = require("fs");
-const { db, connect, disconnect } = require("../../db/db");
+const multer = require("multer");
+const { db } = require("../../db/db");
 
 const router = express.Router();
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "uploads/images/news/"));
+  },
+  filename: (req, file, cb) => {
+    cb(
+      null,
+      Date.now().toString() +
+        (Math.random() * 10000).toString() +
+        path.extname(file.originalname)
+    );
+  },
+});
+const upload = multer({ storage });
 
 // API endpoints for News
 router.get("/api/news", (req, res) => {
@@ -19,6 +33,27 @@ router.get("/api/news", (req, res) => {
   });
 });
 
+router.get("/api/news/image", (req, res) => {
+  const { id } = req.query;
+
+  if (id === undefined) {
+    return res.status(400).json({ message: "Missing query params: id" });
+  }
+
+  const query = `SELECT img FROM news WHERE id=${id}`;
+  db.query(query, (err, result) => {
+    if (err) {
+      return res.status(500).send("Database error.");
+    }
+
+    if (result.length === 0) {
+      return res.status(404).json({ message: "News not found" });
+    }
+
+    res.sendFile(result[0].img);
+  });
+});
+
 router.post("/api/news", (req, res) => {
   const { headline, description, url } = req.body;
 
@@ -30,7 +65,10 @@ router.post("/api/news", (req, res) => {
       return;
     }
 
-    res.status(201).json({ message: `News added with ID: ${result.insertId}` });
+    res.status(201).json({
+      message: `News added with ID: ${result.insertId}`,
+      id: result.insertId,
+    });
   });
 
   // const form = formidable({ multiples: true });
@@ -91,7 +129,7 @@ router.put("/api/news", (req, res) => {
       return;
     }
 
-    res.json({ message: `News updated with ID: ${result.insertId}` });
+    res.json({ message: `News updated with ID: ${id}`, id });
   });
 
   // const form = formidable({ multiples: true });
@@ -139,6 +177,30 @@ router.put("/api/news", (req, res) => {
   //     });
   //   }
   // });
+});
+
+router.put("/api/news/upload-image", upload.single("image"), (req, res) => {
+  const { id } = req.query;
+
+  if (!req.file) {
+    return res.status(400).json({ message: "No file uploaded" });
+  }
+
+  const imagePath = req.file.path;
+  const query = `UPDATE news SET img='${imagePath}' WHERE id=${id}`;
+
+  db.query(query, (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error updating startup");
+
+      return;
+    }
+
+    res.json({
+      message: `Image uploaded to news with ID: ${id}`,
+    });
+  });
 });
 
 router.delete("/api/news", (req, res) => {
