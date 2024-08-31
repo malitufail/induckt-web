@@ -1,4 +1,5 @@
 var apiUrl = "https://induckt-be.netlify.app/.netlify/functions"
+var imageUrl = "https://induckt-be.netlify.app"
  $(document).ready(function () {
 fetchPartners();
  });
@@ -18,13 +19,13 @@ function fetchPartners() {
               if(response[i].type == "partner"){
                 partnersList.append(`
                    <div class="col-md-4">
-          <img class="img-responsive w-25" loading="lazy" alt="" src="${apiUrl}${response[i].logo}">
+          <img class="img-responsive w-25" loading="lazy" alt="" src="${imageUrl}${response[i].logo}">
         </div>
            `);
             } else {
               investorList.append(`
                   <div class="col-md-4">
-          <img class="img-responsive w-25" loading="lazy" alt="" src="${apiUrl}${response[i].logo}">
+          <img class="img-responsive w-25" loading="lazy" alt="" src="${imageUrl}${response[i].logo}">
         </div>
          `);
             }

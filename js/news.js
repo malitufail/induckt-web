@@ -1,4 +1,5 @@
 var apiUrl = "https://induckt-be.netlify.app/.netlify/functions"
+var imageUrl = "https://induckt-be.netlify.app"
 $(document).ready(function () {
   fetchNews();
 });
@@ -27,7 +28,7 @@ function fetchNews() {
                 <p class="card-left-text">${response[i].description}</p>
               </div>
               <div class="col-md-6">
-                <img src="${apiUrl}${response[i].icon}" class="card-img-right" alt="...">
+                <img src="${imageUrl}${response[i].icon}" class="card-img-right" alt="...">
               </div>
             </div>
           </div>`;

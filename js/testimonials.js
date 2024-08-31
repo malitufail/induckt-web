@@ -1,4 +1,5 @@
 var apiUrl = "https://induckt-be.netlify.app/.netlify/functions"
+var imageUrl = "https://induckt-be.netlify.app"
 $(document).ready(function () {
   fetchTestimonials();
 });
@@ -24,7 +25,7 @@ function fetchTestimonials() {
           cardContent = `
             <div class="col-md-3">
               <div class="card insta-card" style="border-radius: 8%; height: auto; text-align: left; background-color: #EECECB;">
-                <img src="${apiUrl}${response[i].attachment}" class="card-img-top" alt="Post Image" style="width: 100%; height: 250px;">
+                <img src="${imageUrl}${response[i].attachment}" class="card-img-top" alt="Post Image" style="width: 100%; height: 250px;">
                 <div class="card-footer d-flex justify-content-between">
                   <div>
                     <h5><strong>${response[i].name}</strong></h5>
@@ -39,7 +40,7 @@ function fetchTestimonials() {
             <div class="col-md-3">
               <div class="card insta-card" style="border-radius: 8%; height: auto; text-align: left; background-color: #EECECB;">
                 <video class="card-video" controls style="width: 100%; height: 250px;" alt="Post Video">
-                  <source src="${apiUrl}${response[i].attachment}" type="video/mp4">
+                  <source src="${imageUrl}${response[i].attachment}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
                 <div class="card-footer d-flex justify-content-between">
@@ -56,7 +57,7 @@ function fetchTestimonials() {
             <div class="col-md-3">
               <div class="card insta-card" style="border-radius: 8%; height: auto; text-align: left; background-color: #EECECB;">
                 <video class="card-video" controls style="width: 100%; height: 250px;" alt="Post Video">
-                  <source src="${apiUrl}${response[i].attachment}" type="video/mp4">
+                  <source src="${imageUrl}${response[i].attachment}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
                 <div class="card-footer d-flex justify-content-between">

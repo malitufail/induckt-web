@@ -1,4 +1,5 @@
 var apiUrl = "https://induckt-be.netlify.app/.netlify/functions"
+var imageUrl = "https://induckt-be.netlify.app"
 $(document).ready(function () {
     fetchBlogs();
 });
@@ -28,7 +29,7 @@ function fetchBlogs() {
                             <div class="card card-slider">
                                 <div class="row no-gutters">
                                     <div class="col-md-6 p-2">
-                                        <img src="${apiUrl}${firstItem.image}" class="card-img-right" alt="..." style="width: 100%; height: 320px;">
+                                        <img src="${imageUrl}${firstItem.image}" class="card-img-right" alt="..." style="width: 100%; height: 320px;">
                                         <div class="blog-text">
                                             <h2>${firstItem.title}</h2>
                                             <p>${firstItem.description}</p>
@@ -37,7 +38,7 @@ function fetchBlogs() {
                                     </div>
                                     ${secondItem ? `
                                     <div class="col-md-6 p-2">
-                                        <img src="${apiUrl}${secondItem.image}" class="card-img-right" alt="..." style="width: 100%; height: 320px;">
+                                        <img src="${imageUrl}${secondItem.image}" class="card-img-right" alt="..." style="width: 100%; height: 320px;">
                                         <div class="blog-text">
                                             <h2>${secondItem.title}</h2>
                                             <p>${secondItem.description}</p>
