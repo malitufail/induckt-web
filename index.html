@@ -325,7 +325,7 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
-    <div class="carousel-inner">
+    <div class="carousel-inner portfoliosList">
       <div class="carousel-item active">
         <div class="card-group">
           <div class="card card-slider">
@@ -481,7 +481,7 @@
       <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
     </ol>
-    <div class="carousel-inner">
+    <div class="carousel-inner newsList">
       <div class="carousel-item active">
         <div class="card-group">
           <div class="card card-slider">
@@ -591,6 +591,7 @@
         // Hide all forms
         $(".form-container").hide();
         // Show the corresponding form based on the index
+         
         $(".form-container").eq(index).show();
       });
     });
@@ -601,7 +602,7 @@
       <!-- Left Section: Box Options -->
       <div class="col-md-5 left-form-box">
         <!-- Left Section: Box Options -->
-        <div class="box-option">
+        <div class="box-option" data-id="investor">
           <div class="row align-items-center">
             <!-- Add align-items-center to vertically center content -->
             <div class="col-md-3 text-center">
@@ -617,7 +618,7 @@
           </div>
         </div>
 
-        <div class="box-option">
+        <div class="box-option" data-id="startup">
           <div class="row align-items-center">
             <!-- Add align-items-center to vertically center content -->
             <div class="col-md-3 text-center">
@@ -633,7 +634,7 @@
           </div>
         </div>
 
-        <div class="box-option">
+        <div class="box-option" data-id="ecosystem">
           <div class="row align-items-center">
             <!-- Add align-items-center to vertically center content -->
             <div class="col-md-3 text-center">
@@ -657,30 +658,31 @@
       <div class="col-md-7">
         <div class="form-container form-text">
           <!-- Form for Option 1 -->
-          <form>
+          <form id="investorForm" data-id="investor">
             <h4 style="padding-bottom:5%;">Together we can bring lot of values for each other - Induckt's Founder</h4>
             <div class="form-group">
-              <input type="text" class="form-control input-form" id="input1" placeholder="Name*" />
+              <input type="text" class="form-control input-form" id="input1" placeholder="Name*" name="name"/>
 
-              <select class="form-control input-form" id="organizationType">
+              <select class="form-control input-form" id="organizationType" name="type">
                 <option value="">Type*</option>
-                <option value="option1">Individual</option>
-                <option value="option2">Venture Capital Fund</option>
-                <option value="option3">Family House</option>
-                <option value="option4">Angel Syndicate</option>
+                <option value="Individual">Individual</option>
+                <option value="Venture Capital Fund">Venture Capital Fund</option>
+                <option value="Family House">Family House</option>
+                <option value="Angel Syndicate">Angel Syndicate</option>
               </select>
 
-              <input type="text" class="form-control input-form" id="input1" placeholder="Designation" />
+              <input type="text" class="form-control input-form" id="input1" placeholder="Designation" name="designation`"/>
 
-              <input type="text" class="form-control input-form" id="input1" placeholder="Linkedin URL*" />
+              <input type="text" class="form-control input-form" id="input1" placeholder="Linkedin URL*" name="linkedinProfile"/>
 
-              <input type="text" class="form-control input-form" id="input1" placeholder="Website URL" />
+              <input type="text" class="form-control input-form" id="input1" placeholder="Website URL" name="website"/>
 
-              <input type="tel" class="form-control input-form" id="input1" maxlength="10" placeholder="Mobile no*">
+              <input type="tel" class="form-control input-form" id="input1" maxlength="10" placeholder="Mobile no*" name="mobile" />
 
-              <input type="email" class="form-control input-form" id="input1" placeholder="Email ID*" />
+              <input type="email" class="form-control input-form" id="input1" placeholder="Email ID*" name="email"/>
 
-              <input type="text" class="form-control input-form" id="input1" placeholder="Preferred Mode Of Investment" />
+              <input type="text" class="form-control input-form" id="input1" placeholder="Preferred Mode Of Investment" name="contactMode"/>
+              <input type="text" class="form-control input-form" id="input1" placeholder="Category" name="category" readonly value="investor"/>
 
             </div>
 
@@ -693,25 +695,26 @@
         </div>
         <div class="form-container form-text" style="display:none;">
           <!-- Form for Option 2 -->
-          <form>
+          <form id="startupForm" data-id="startup">
             <h4 style="padding-bottom:5%;">Together we can bring lot of values for each other - Induckt's Founder</h4>
             <div class="form-group">
-              <input type="text" class="form-control input-form" id="input1" placeholder="Name*" />
+              <input type="text" class="form-control input-form" id="input1" placeholder="Name*" name="name"/>
 
-              <select class="form-control input-form" id="organizationType">
+              <select class="form-control input-form" id="organizationType" name="type">
                 <option value="">Type*</option>
-                <option value="option1">Founder</option>
-                <option value="option2">Investment Banker</option>
-                <option value="option3">Deal Scouter</option>
+                <option value="Founder">Founder</option>
+                <option value="Investment Banker">Investment Banker</option>
+                <option value="Deal Scouter">Deal Scouter</option>
               </select>
 
-              <input type="text" class="form-control input-form" id="input1" placeholder="Linkedin URL*" />
+              <input type="text" class="form-control input-form" id="input1" placeholder="Linkedin URL*" name="linkedinProfile"/>
 
-              <input type="tel" class="form-control input-form" id="input1" maxlength="10" placeholder="Mobile no*">
+              <input type="tel" class="form-control input-form" id="input1" maxlength="10" placeholder="Mobile no*" name="mobile">
 
-              <input type="email" class="form-control input-form" id="input1" placeholder="Email ID*" />
+              <input type="email" class="form-control input-form" id="input1" placeholder="Email ID*" name="email"/>
 
-              <input type="text" class="form-control input-form" id="input1" placeholder="Preferred Mode Of Investment" />
+              <input type="text" class="form-control input-form" id="input1" placeholder="Preferred Mode Of Investment" name="contactMode"/>
+              <input type="text" class="form-control input-form" id="input1" name="category" readonly value="startup"/>
             </div>
 
             <button type="submit" class="btn px-4 py-2 form-submit-button"> Submit
@@ -723,26 +726,27 @@
         </div>
         <div class="form-container form-text" style="display:none;">
           <!-- Form for Option 3 -->
-          <form>
+          <form id="ecosystemForm" data-id="ecosystem">
             <h4 style="padding-bottom:5%;">Together we can bring lot of values for each other - Induckt's Founder</h4>
             <div class="form-group">
-              <input type="text" class="form-control input-form" id="input1" placeholder="Name*" />
+              <input type="text" class="form-control input-form" id="input1" placeholder="Name*" name="name"/>
 
-              <select class="form-control input-form" id="organizationType">
+              <select class="form-control input-form" id="organizationType" name="type">
                 <option value="">Select Organization Type</option>
-                <option value="option1">Incubator</option>
-                <option value="option2">Accelerator</option>
-                <option value="option3">Service Provider</option>
-                <option value="option4">State Government</option>
+                <option value="Incubator">Incubator</option>
+                <option value="Accelerator">Accelerator</option>
+                <option value="Service Provider">Service Provider</option>
+                <option value="State Government">State Government</option>
               </select>
 
-              <input type="text" class="form-control input-form" id="input1" placeholder="Linkedin URL*" />
+              <input type="text" class="form-control input-form" id="input1" placeholder="Linkedin URL*" name="linkedinProfile"/>
 
-              <input type="tel" class="form-control input-form" id="input1" maxlength="10" placeholder="Mobile no*">
+              <input type="tel" class="form-control input-form" id="input1" maxlength="10" placeholder="Mobile no*" name="mobile">
 
-              <input type="email" class="form-control input-form" id="input1" placeholder="Email ID*" />
+              <input type="email" class="form-control input-form" id="input1" placeholder="Email ID*" name="email"/>
 
-              <input type="text" class="form-control input-form" id="input1" placeholder="Preferred Mode Of Investment" />
+              <input type="text" class="form-control input-form" id="input1" placeholder="Preferred Mode Of Investment" name="contactMode"/>
+              <input type="text" class="form-control input-form" id="input1" name="category" readonly value="ecosystem"/>
             </div>
 
             <button type="submit" class="btn px-4 py-2 form-submit-button"> Submit
@@ -984,271 +988,8 @@
         <li data-target="#carouselExampleIndicators3" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators3" data-slide-to="2"></li>
       </ol>
-      <div class="carousel-inner">
-
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="card insta-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: #EECECB;">
-
-
-                <!-- Card Image -->
-                <img src="./images/Rectangle 2404.png" class="card-img-top" alt="Post Image"
-                  style="width: 100%; height: 250px;">
-
-                <!-- Card Footer -->
-                <div class="card-footer d-flex justify-content-between">
-                  <div>
-                    <h5><strong>Dr. Eli Coleman, phD</strong></h5>
-                    <p style="color: #000;"> If you're coaching individuals or teams in specific areas like sports,
-                      business, or fitness, you may receive feedback in the form of improved performance metrics. </p>
-                  </div>
-                </div>
-              </div>
-              <br>
-            </div>
-
-            <div class="col-md-3">
-              <div class="card insta-card client-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: #DDE5F4;">
-                <!-- Card Header -->
-                <div class="card-header">
-                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
-                    <img src="./images/Ellipse 1384.png" alt="User Icon" class="rounded-circle mr-2"
-                      style="width: 40px;">
-                    <div style="text-align: left; font-size: 0.7rem;">
-                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
-                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
-                    </div><br>
-                  </div>
-                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
-                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
-                    as increased revenue, improved athletic performance.</p>
-
-                </div>
-
-              </div>
-              <br>
-            </div>
-
-
-            <div class="col-md-3">
-              <div class="card insta-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: white; position: relative;">
-
-                <!-- Card Image -->
-                <img src="./images/Rectangle 2406.png" class="card-img-top" alt="Post Image"
-                  style="width: 100%; height: 420px;">
-
-                <div
-                  style="position: absolute; bottom: 4%; left: 2%; right: 2%; background-color: red; border-radius: 25px; padding: 10px; display: flex; align-items: center;">
-                  <i class="fab fa-youtube" style="color: white; font-size: 28px;"></i>
-                  <span style="color: white; margin-left: 10px;">Jordan Nilsen <br> 1:24</span>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="card insta-card client-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: #FFD9D6;">
-                <!-- Card Header -->
-                <div class="card-header">
-                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
-                    <img src="./images/Ellipse 1385.png" alt="User Icon" class="rounded-circle mr-2"
-                      style="width: 40px;">
-                    <div style="text-align: left; font-size: 0.7rem;">
-                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
-                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
-                    </div><br>
-                  </div>
-                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
-                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
-                    as increased revenue, improved athletic performance.</p>
-
-                </div>
-              </div>
-              <br>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="card insta-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: #EECECB;">
-
-
-                <!-- Card Image -->
-                <img src="./images/Rectangle 2404.png" class="card-img-top" alt="Post Image"
-                  style="width: 100%; height: 250px;">
-
-                <!-- Card Footer -->
-                <div class="card-footer d-flex justify-content-between">
-                  <div>
-                    <h5><strong>Dr. Eli Coleman, phD</strong></h5>
-                    <p style="color: #000;"> If you're coaching individuals or teams in specific areas like sports,
-                      business, or fitness, you may receive feedback in the form of improved performance metrics. </p>
-                  </div>
-                </div>
-              </div>
-              <br>
-            </div>
-
-            <div class="col-md-3">
-              <div class="card insta-card client-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: #DDE5F4;">
-                <!-- Card Header -->
-                <div class="card-header">
-                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
-                    <img src="./images/Ellipse 1384.png" alt="User Icon" class="rounded-circle mr-2"
-                      style="width: 40px;">
-                    <div style="text-align: left; font-size: 0.7rem;">
-                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
-                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
-                    </div><br>
-                  </div>
-                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
-                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
-                    as increased revenue, improved athletic performance.</p>
-
-                </div>
-
-              </div>
-              <br>
-            </div>
-
-
-            <div class="col-md-3">
-              <div class="card insta-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: white; position: relative;">
-
-                <!-- Card Image -->
-                <img src="./images/Rectangle 2406.png" class="card-img-top" alt="Post Image"
-                  style="width: 100%; height: 420px;">
-
-                <div
-                  style="position: absolute; bottom: 4%; left: 2%; right: 2%; background-color: red; border-radius: 25px; padding: 10px; display: flex; align-items: center;">
-                  <i class="fab fa-youtube" style="color: white; font-size: 28px;"></i>
-                  <span style="color: white; margin-left: 10px;">Jordan Nilsen <br> 1:24</span>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="card insta-card client-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: #FFD9D6;">
-                <!-- Card Header -->
-                <div class="card-header">
-                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
-                    <img src="./images/Ellipse 1385.png" alt="User Icon" class="rounded-circle mr-2"
-                      style="width: 40px;">
-                    <div style="text-align: left; font-size: 0.7rem;">
-                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
-                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
-                    </div><br>
-                  </div>
-                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
-                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
-                    as increased revenue, improved athletic performance.</p>
-
-                </div>
-              </div>
-              <br>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="card insta-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: #EECECB;">
-
-
-                <!-- Card Image -->
-                <img src="./images/Rectangle 2404.png" class="card-img-top" alt="Post Image"
-                  style="width: 100%; height: 250px;">
-
-                <!-- Card Footer -->
-                <div class="card-footer d-flex justify-content-between">
-                  <div>
-                    <h5><strong>Dr. Eli Coleman, phD</strong></h5>
-                    <p style="color: #000;"> If you're coaching individuals or teams in specific areas like sports,
-                      business, or fitness, you may receive feedback in the form of improved performance metrics. </p>
-                  </div>
-                </div>
-              </div>
-              <br>
-            </div>
-
-            <div class="col-md-3">
-              <div class="card insta-card client-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: #DDE5F4;">
-                <!-- Card Header -->
-                <div class="card-header">
-                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
-                    <img src="./images/Ellipse 1384.png" alt="User Icon" class="rounded-circle mr-2"
-                      style="width: 40px;">
-                    <div style="text-align: left; font-size: 0.7rem;">
-                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
-                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
-                    </div><br>
-                  </div>
-                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
-                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
-                    as increased revenue, improved athletic performance.</p>
-
-                </div>
-
-              </div>
-              <br>
-            </div>
-
-
-            <div class="col-md-3">
-              <div class="card insta-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: white; position: relative;">
-
-                <!-- Card Image -->
-                <img src="./images/Rectangle 2406.png" class="card-img-top" alt="Post Image"
-                  style="width: 100%; height: 420px;">
-
-                <div
-                  style="position: absolute; bottom: 4%; left: 2%; right: 2%; background-color: red; border-radius: 25px; padding: 10px; display: flex; align-items: center;">
-                  <i class="fab fa-youtube" style="color: white; font-size: 28px;"></i>
-                  <span style="color: white; margin-left: 10px;">Jordan Nilsen <br> 1:24</span>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="card insta-card client-card"
-                style="border-radius: 8%; height: auto; text-align: left; background-color: #FFD9D6;">
-                <!-- Card Header -->
-                <div class="card-header">
-                  <div class="d-flex align-items-center" style="margin-top: 5%; margin-bottom: 5%;">
-                    <img src="./images/Ellipse 1385.png" alt="User Icon" class="rounded-circle mr-2"
-                      style="width: 40px;">
-                    <div style="text-align: left; font-size: 0.7rem;">
-                      <h6 class="mb-0"><strong>Alex Smith</strong></h6>
-                      <p class="text-muted mb-0"><span style="color: #007DFC;">Coaching of Halal Lab</span></p>
-                    </div><br>
-                  </div>
-                  <p style="color: #000;">If you're coaching individuals or teams in specific areas like sports,
-                    business, 😎 or fitness, you may receive feedback in the form of improved performance metrics, such
-                    as increased revenue, improved athletic performance.</p>
-
-                </div>
-              </div>
-              <br>
-            </div>
-          </div>
-        </div>
+      <div class="carousel-inner testimonialsList h-100">
+ 
 
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
@@ -1275,7 +1016,16 @@
         in aliquam sed ipsum tristique.</p>
     </div>
 
-    <div class="partners-container" style="background-image: url(./images/partner.png); ">
+    <div class="partners-container "  >
+      <div class="row partnersList text-center">
+          
+      </div>
+    </div>
+    <hr/>
+    <div class="investors-container" >
+      <div class="row investorList text-center">
+          
+      </div>
     </div>
   </div>
 
@@ -1354,7 +1104,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row eventList">
       <div class="col-md-5 even-box" style="margin-right: 3%;">
         <!-- Added margin-right -->
         <p>
@@ -1416,46 +1166,49 @@
         <h4 style="text-align: left;">Seed Fund Event - 2024 Part-3</h4 style="text-align: left;">
         <p> Quisque vitae ante dolor. Duis vehicula purus eget libero interdum ornare. Vestibulum ut risus nec odio
           rhoncus malesuada. Duis lobortis consectetur magna, in faucibus mauris congue tempor.</p>
-      </div>
+      </div> 
 
     </div>
 
   </div>
 
   <script>
+    setTimeout(()=>{
+      
+    },2000)
     document.addEventListener("DOMContentLoaded", function () {
-      const boxContainers = document.querySelectorAll('.row > .even-box');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const boxCount = boxContainers.length;
-      let currentIndex = 0;
-
-      function showBoxes() {
-        boxContainers.forEach(function (box, index) {
-          if (index >= currentIndex && index < currentIndex + 2) {
-            box.style.display = 'block'; // Show boxes within currentIndex and currentIndex + 2
-          } else {
-            box.style.display = 'none'; // Hide other boxes
-          }
-        });
-      }
-
-      showBoxes();
-
-      prevBtn.addEventListener('click', function () {
-        if (currentIndex > 0) {
-          currentIndex -= 2;
-          showBoxes();
-        }
+        // const boxContainers = document.querySelectorAll('.row > .even-box');
+        // const prevBtn = document.getElementById('prevBtn');
+        // const nextBtn = document.getElementById('nextBtn');
+        // const boxCount = boxContainers.length;
+        // let currentIndex = 0;
+  
+        // function showBoxes() {
+        //   boxContainers.forEach(function (box, index) {
+        //     if (index >= currentIndex && index < currentIndex + 2) {
+        //       box.style.display = 'block'; // Show boxes within currentIndex and currentIndex + 2
+        //     } else {
+        //       box.style.display = 'none'; // Hide other boxes
+        //     }
+        //   });
+        // }
+  
+        // showBoxes();
+  
+        // prevBtn.addEventListener('click', function () {
+        //   if (currentIndex > 0) {
+        //     currentIndex -= 2;
+        //     showBoxes();
+        //   }
+        // });
+  
+        // nextBtn.addEventListener('click', function () {
+        //   if (currentIndex + 2 < boxCount) {
+        //     currentIndex += 2;
+        //     showBoxes();
+        //   }
+        // });
       });
-
-      nextBtn.addEventListener('click', function () {
-        if (currentIndex + 2 < boxCount) {
-          currentIndex += 2;
-          showBoxes();
-        }
-      });
-    });
   </script>
 
 
@@ -1469,128 +1222,13 @@
     </div>
 
     <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators" style="color:black;">
-        <li data-target="#carouselExampleIndicators4" data-slide-to="0" class="active"></li>
+      <ol class="carousel-indicators blogs-indicator" style="color:black;">
+        <!-- <li data-target="#carouselExampleIndicators4" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators4" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators4" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators4" data-slide-to="2"></li> -->
       </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="card-group">
-            <div class="card card-slider">
-              <div class="row no-gutters">
-                <div class="col-md-10 card-left-line">
-                  <img src="./images/blog1.png" class="card-img-right" alt="..." style="width: 100%; height: 320px;">
-
-                  <div class="blog-text">
-                    <h2> Plug-and-play integrations. </h2>
-                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
-                      workforce population. </p>
-                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
-                        style="color: #0000FF;"></i></a><br>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="card card-slider">
-              <div class="row no-gutters">
-                <div class="col-md-10 card-left-line">
-                  <img src="./images/blog2.png" class="card-img-right" alt="..." style="width: 100%;  height: 320px;">
-
-                  <div class="blog-text">
-                    <h2> Plug-and-play integrations. </h2>
-                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
-                      workforce population. </p>
-                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
-                        style="color: #0000FF;"></i></a>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="card-group">
-            <div class="card card-slider">
-              <div class="row no-gutters">
-                <div class="col-md-10 card-left-line">
-                  <img src="./images/blog1.png" class="card-img-right" alt="..." style="width: 100%; height: 320px;">
-
-                  <div class="blog-text">
-                    <h2> Plug-and-play integrations. </h2>
-                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
-                      workforce population. </p>
-                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
-                        style="color: #0000FF;"></i></a><br>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="card card-slider">
-              <div class="row no-gutters">
-                <div class="col-md-10 card-left-line">
-                  <img src="./images/blog2.png" class="card-img-right" alt="..." style="width: 100%;  height: 320px;">
-
-                  <div class="blog-text">
-                    <h2> Plug-and-play integrations. </h2>
-                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
-                      workforce population. </p>
-                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
-                        style="color: #0000FF;"></i></a>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="card-group">
-            <div class="card card-slider">
-              <div class="row no-gutters">
-                <div class="col-md-10 card-left-line">
-                  <img src="./images/blog1.png" class="card-img-right" alt="..." style="width: 100%; height: 320px;">
-
-                  <div class="blog-text">
-                    <h2> Plug-and-play integrations. </h2>
-                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
-                      workforce population. </p>
-                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
-                        style="color: #0000FF;"></i></a><br>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="card card-slider">
-              <div class="row no-gutters">
-                <div class="col-md-10 card-left-line">
-                  <img src="./images/blog2.png" class="card-img-right" alt="..." style="width: 100%;  height: 320px;">
-
-                  <div class="blog-text">
-                    <h2> Plug-and-play integrations. </h2>
-                    <p> Connect to existing HCM systems and create a single source of truth for insights into your
-                      workforce population. </p>
-                    <a href="#" style="color: #0000FF;">Explore integrations <i class="fas fa-arrow-right"
-                        style="color: #0000FF;"></i></a>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
+      <div class="carousel-inner blogs-items">
+          
 
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators4" role="button" data-slide="prev">
@@ -1713,7 +1351,14 @@
     }
   </script>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="./js/form.js"></script>
+  <script src="./js/portfolios.js"></script>
+  <script src="./js/news.js"></script>
+  <script src="./js/blogs.js"></script>
+  <script src="./js/partners.js"></script>
+  <script src="./js/testimonials.js"></script>
+  <script src="./js/events.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="./js/earth-globe.js"></script>
   <script src="js/navbar.js"></script>

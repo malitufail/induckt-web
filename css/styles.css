@@ -1021,8 +1021,8 @@ p {
   flex-direction: column;
   align-items: center;
   /* padding: 50px 20px;  */
-  margin-top: -8%;
-  padding-bottom: 35%;
+  /* margin-top: -8%; */
+  padding-bottom: 2vh;
 }
 
 .partner-text {

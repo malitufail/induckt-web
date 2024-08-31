@@ -7,14 +7,16 @@ const mysql = require("mysql2");
 
 const host = "localhost";
 const user = "root";
-const password = "Welcome@2000";
+const password = "Wh0isthis??";
+const port = 3306;
 const database = "wormos";
 
 const db = mysql.createConnection({
   host,
   user,
   password,
-  database,
+  port,
+  database
 });
 
 const connect = () => {
