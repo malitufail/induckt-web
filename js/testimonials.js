@@ -1,4 +1,4 @@
-var apiUrl = "https://66d35e0cd497be5953e1d359--induckt-be.netlify.app/.netlify/functions"
+var apiUrl = "https://induckt-be.netlify.app/.netlify/functions"
 $(document).ready(function () {
   fetchTestimonials();
 });
