@@ -1,4 +1,5 @@
 var apiUrl = "https://induckt-be.netlify.app/.netlify/functions"
+var imageUrl = "https://induckt-be.netlify.app"
 $(document).ready(function () {
   fetchPortfolios();
 });
@@ -23,7 +24,7 @@ function fetchPortfolios() {
           <div class="card card-slider">
             <div class="row no-gutters">
               <div class="col-md-6">
-                <img src="${!!response[i].icon ? apiUrl + response[i].icon : './images/s1.png'}" class="card-img-top" alt="...">
+                <img src="${!!response[i].icon ? imageUrl + response[i].icon : './images/s1.png'}" class="card-img-top" alt="...">
               </div>
               <div class="col-md-6" style="padding-left: 3%;">
                 <h5 class="card-slider-text">${response[i].startupType}</h5>
